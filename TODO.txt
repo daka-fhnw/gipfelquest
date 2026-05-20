@@ -1,0 +1,30 @@
+Zuerst untereinander abgleichen, damit wir gleiches Ziel vor Augen haben
+Auch während Hackathon regelmässig untereinander austauschen und abgleichen
+
+Vorbereitung
+- Landeskoordinaten und Höhen von markanten Berggipfeln in ganz CH raussuchen
+- Texte und Gestaltung der Seite vorbereiten (Willkommen, Spiel, Spielende, ...)
+- Festlegen der Hilfestellungen und Punktabzüge nach Schwierigkeit definieren
+- Allgemeiner Spielablauf und Regeln definieren (Zeitbeschränkung, Punktabzüge, ...)
+---> gemeinsam besprechen
+
+Programmieren
+- Code für Profile vorbereiten (profile API, admin.ch)
+- Code für Orthophoto vorbereiten (WMS, SWISSIMAGE)
+- Code für Namen (Kanton, Gemeinde, Gebiet, ...) vorbereiten (swissNAMES3D)
+- JSON-Struktur definieren (Bergname, Höhe, Landeskoordinaten, Profil, WMS-URL)
+---> gemeinsam Code zusammenführen und JSON Struktur generieren
+
+Aufgaben für Streamlit
+- Code für Aufklappen und Punktabzug vorbereiten (Streamlit)
+- Code für Zeitbeschränkung vorbereiten (Streamlit)
+- Code für Blättern zwischen Berggipfeln (Streamlit)
+- Code für einzelne Seiten: Willkommen, Spiel, Spielende, ...
+---> Code zusammenführen und austesten, ob es als Spiel "verhebt"
+
+Weiteres bei genügend Zeit
+- Logo für unsere App erstellen
+- abklären, wie wir Highscores speichern könnten
+- App auf streamlit.io veröffentlichen
+- Weitere Ideen sammeln oder bereits Pitch vorbereiten
+---> Pizza essen
