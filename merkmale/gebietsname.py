@@ -143,3 +143,4 @@ def get_gebietsname(data):
 if __name__ == "__main__":
     data = read_gipfel_koordinaten()
     liste = get_gebietsname(data)
+    print(liste)

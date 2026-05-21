@@ -7,7 +7,8 @@ def get_hoehen(data):
         northing = int(round(row.geometry.y, 0))
         elevation = int(round(row.Hoehe, 0))
         liste.append({
-            "koordinaten": (easting, northing),
+            "koordinate_x": easting,
+            "koordinate_y": northing,
             "hoehe": elevation,
         })
     return liste

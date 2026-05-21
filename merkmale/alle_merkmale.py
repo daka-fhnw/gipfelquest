@@ -5,6 +5,7 @@ from kanton import get_kantone
 from hoehen import get_hoehen
 from orthophoto import get_ortho_url
 from profil import get_profil
+from gebietsname import get_gebietsname
 
 data = read_gipfel_koordinaten()
 data_count = data.shape[0]
@@ -14,13 +15,14 @@ kantone = get_kantone(data)
 hoehen = get_hoehen(data)
 orthophoto = get_ortho_url(data)
 profil = get_profil(data)
+gebietsname = get_gebietsname(data)
 
 liste = []
 for i in range(data_count):
     row = data.iloc[0]
     geom = row.geometry
     alle = {"name": row["Name"]}
-    alle = alle | hoehen[i] | kantone[i] | gemeinden[i] | orthophoto[i] | profil[i]
+    alle = alle | hoehen[i] | kantone[i] | gemeinden[i] | gebietsname[i] | orthophoto[i] | profil[i]
     liste.append(alle)
 
 with open('./data/gipfel-daten.json', 'w') as fp:
