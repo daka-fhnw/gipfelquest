@@ -1,24 +1,21 @@
-import pandas as pd
-import geopandas as gpd
-import matplotlib.pyplot as plt
+from read_gipfel_koordinaten import read_gipfel_koordinaten
 
-data = pd.read_csv('data/gipfel-koordinaten.csv')
-data = gpd.GeoDataFrame(data, 
-    geometry=gpd.points_from_xy(data['easting'], data['northing']),
-    crs='EPSG:2056'
-)
+def get_beispiel_merkmal(data):
+    liste = []
+    for row in data.itertuples():
+        name = row.Name
+        easting = row.geometry.x
+        northing = row.geometry.y
+        # spezifischer Code
+        liste.append({
+            # z.B. Gebietsname, Profilkoordinaten, ...
+            "property1": 1,
+            "property2": 2,
+        })
+    return liste
 
-liste = []
-
-for row in data.itertuples():
-    name = row.name
-    easting = row.easting
-    northing = row.northing
-    # spezifischer Code
-    liste.append({
-        # z.B. Gebietsname, Profilkoordinaten, ...
-        "property1": 1,
-        "property2": 2,
-    })
-
-print(liste)
+if __name__ == "__main__":
+    data = read_gipfel_koordinaten()
+    liste = get_beispiel_merkmal(data)
+    print(liste)
+    
