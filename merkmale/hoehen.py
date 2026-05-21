@@ -3,9 +3,12 @@ from read_gipfel_koordinaten import read_gipfel_koordinaten
 def get_hoehen(data):
     liste = []
     for row in data.itertuples():
+        easting = int(round(row.geometry.x, 0))
+        northing = int(round(row.geometry.y, 0))
         elevation = int(round(row.Hoehe, 0))
         liste.append({
-            "hoehe": elevation
+            "koordinaten": (easting, northing),
+            "hoehe": elevation,
         })
     return liste
 

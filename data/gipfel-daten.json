@@ -1,8 +1,13 @@
 [
   {
-    "gemeinde": "Val de Bagnes",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2589342,
+      1087685
+    ],
     "hoehe": 4260,
+    "kanton": "Wallis",
+    "gemeinde": "Val de Bagnes",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2587342.326998962%2C1085685.06628278%2C2591342.326998962%2C1089685.06628278&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -1607,13 +1612,17 @@
         1088685.066,
         3563.9
       ]
-    ],
-    "name": "Aiguille du Croissant"
+    ]
   },
   {
-    "gemeinde": "Naters",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2642599,
+      1146136
+    ],
     "hoehe": 4195,
+    "kanton": "Wallis",
+    "gemeinde": "Naters",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2640598.953991994%2C1144135.6340532661%2C2644598.953991994%2C1148135.6340532661&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -3218,13 +3227,17 @@
         1147135.634,
         3540.5
       ]
-    ],
-    "name": "Aletschhorn"
+    ]
   },
   {
-    "gemeinde": "Saas-Fee",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2635293,
+      1099497
+    ],
     "hoehe": 4027,
+    "kanton": "Wallis",
+    "gemeinde": "Saas-Fee",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2633293.457828076%2C1097496.82958898%2C2637293.457828076%2C1101496.82958898&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -4829,13 +4842,17 @@
         1100496.83,
         3404.6
       ]
-    ],
-    "name": "Allalinhorn"
+    ]
   },
   {
-    "gemeinde": "T\u00e4sch",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2632905,
+      1101350
+    ],
     "hoehe": 4206,
+    "kanton": "Wallis",
+    "gemeinde": "T\u00e4sch",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2630904.6624806854%2C1099350.052860736%2C2634904.6624806854%2C1103350.052860736&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -6440,13 +6457,17 @@
         1102350.053,
         3853.5
       ]
-    ],
-    "name": "Alphubel"
+    ]
   },
   {
-    "gemeinde": "Turtmann-Unterems",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2621361,
+      1107418
+    ],
     "hoehe": 4153,
+    "kanton": "Wallis",
+    "gemeinde": "Turtmann-Unterems",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2619361.0779148554%2C1105417.766543011%2C2623361.0779148554%2C1109417.766543011&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -8051,13 +8072,17 @@
         1108417.767,
         3434.6
       ]
-    ],
-    "name": "Bishorn"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2623968,
+      1087766
+    ],
     "hoehe": 4164,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2621967.7568493644%2C1085765.5289790684%2C2625967.7568493644%2C1089765.5289790684&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -9662,13 +9687,17 @@
         1088765.529,
         3232.5
       ]
-    ],
-    "name": "Breithorn Occidentale / Westgipfel"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2627514,
+      1085534
+    ],
     "hoehe": 4228,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2625513.9923610506%2C1083534.243000992%2C2629513.9923610506%2C1087534.243000992&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -11273,13 +11302,17 @@
         1086534.243,
         3524.8
       ]
-    ],
-    "name": "Castor"
+    ]
   },
   {
-    "gemeinde": "Val de Bagnes",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2590110,
+      1087930
+    ],
     "hoehe": 4135,
+    "kanton": "Wallis",
+    "gemeinde": "Val de Bagnes",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2588110.31250831%2C1085930.086577044%2C2592110.31250831%2C1089930.086577044&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -12884,13 +12917,17 @@
         1088930.087,
         3643.9
       ]
-    ],
-    "name": "Combin de la Tsessette"
+    ]
   },
   {
-    "gemeinde": "Val de Bagnes",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2588485,
+      1087391
+    ],
     "hoehe": 4184,
+    "kanton": "Wallis",
+    "gemeinde": "Val de Bagnes",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2586485.238655624%2C1085391.4867320582%2C2590485.238655624%2C1089391.4867320582&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -14495,13 +14532,17 @@
         1088391.487,
         3617.3
       ]
-    ],
-    "name": "Combin de Valsorey"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2613417,
+      1098085
+    ],
     "hoehe": 4358,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2611416.557871661%2C1096085.3373642308%2C2615416.557871661%2C1100085.3373642308&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -16106,13 +16147,17 @@
         1099085.337,
         3339.2
       ]
-    ],
-    "name": "Dent Blanche"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2612898,
+      1090948
+    ],
     "hoehe": 4171,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2610897.723445681%2C1088947.5293077477%2C2614897.723445681%2C1092947.5293077477&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -17717,13 +17762,17 @@
         1091947.529,
         3132.6
       ]
-    ],
-    "name": "Dent d\u2019H\u00e9rens"
+    ]
   },
   {
-    "gemeinde": "Saas-Fee",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2632501,
+      1104800
+    ],
     "hoehe": 4545,
+    "kanton": "Wallis",
+    "gemeinde": "Saas-Fee",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2630500.5467574997%2C1102799.9398722646%2C2634500.5467574997%2C1106799.9398722646&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -19328,13 +19377,17 @@
         1105799.94,
         3885.4
       ]
-    ],
-    "name": "Dom"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2633205,
+      1087348
+    ],
     "hoehe": 4634,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2631205.083519739%2C1085348.032036737%2C2635205.083519739%2C1089348.032036737&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -20939,13 +20992,17 @@
         1088348.032,
         4370.7
       ]
-    ],
-    "name": "Dufourspitze"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2633308,
+      1087347
+    ],
     "hoehe": 4632,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2631307.6932129753%2C1085346.846701573%2C2635307.6932129753%2C1089346.846701573&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -22550,13 +22607,17 @@
         1088346.847,
         4397.1
       ]
-    ],
-    "name": "Dunantspitze"
+    ]
   },
   {
-    "gemeinde": "St. Niklaus",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2631662,
+      1107655
+    ],
     "hoehe": 4035,
+    "kanton": "Wallis",
+    "gemeinde": "St. Niklaus",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2629662.269645503%2C1105654.8395114972%2C2633662.269645503%2C1109654.8395114972&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -24161,13 +24222,17 @@
         1108654.84,
         3375.0
       ]
-    ],
-    "name": "D\u00fcrrenhorn"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2632045,
+      1085572
+    ],
     "hoehe": 4178,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2630045.2417668947%2C1083572.2517390188%2C2634045.2417668947%2C1087572.2517390188&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -25772,13 +25837,17 @@
         1086572.252,
         3764.9
       ]
-    ],
-    "name": "Entdeckungsfelsen"
+    ]
   },
   {
-    "gemeinde": "Fieschertal",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2652737,
+      1154237
+    ],
     "hoehe": 4274,
+    "kanton": "Wallis",
+    "gemeinde": "Fieschertal",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2650737.239495801%2C1152236.5178547688%2C2654737.239495801%2C1156236.5178547688&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -27383,13 +27452,17 @@
         1155236.518,
         3235.2
       ]
-    ],
-    "name": "Finsteraarhorn"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2625729,
+      1087193
+    ],
     "hoehe": 4106,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2623729.006687678%2C1085192.736410506%2C2627729.006687678%2C1089192.736410506&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -28994,13 +29067,17 @@
         1088192.736,
         3341.8
       ]
-    ],
-    "name": "Gemello del Breithorn"
+    ]
   },
   {
-    "gemeinde": "Val de Bagnes",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2589186,
+      1087342
+    ],
     "hoehe": 4314,
+    "kanton": "Wallis",
+    "gemeinde": "Val de Bagnes",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2587185.7178854793%2C1085341.5338314637%2C2591185.7178854793%2C1089341.5338314637&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -30605,13 +30682,17 @@
         1088341.534,
         3770.4
       ]
-    ],
-    "name": "Grand Combin de Grafeneire"
+    ]
   },
   {
-    "gemeinde": "Saas-Fee",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2632745,
+      1105021
+    ],
     "hoehe": 4468,
+    "kanton": "Wallis",
+    "gemeinde": "Saas-Fee",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2630744.956285853%2C1103021.0312692171%2C2634744.956285853%2C1107021.0312692171&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -32216,13 +32297,17 @@
         1106021.031,
         3900.7
       ]
-    ],
-    "name": "Grand Gendarme"
+    ]
   },
   {
-    "gemeinde": "Saas-Fee",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2613318,
+      1097595
+    ],
     "hoehe": 4097,
+    "kanton": "Wallis",
+    "gemeinde": "Saas-Fee",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2611318.050042256%2C1095594.9735359473%2C2615318.050042256%2C1099594.9735359473&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -33827,13 +33912,17 @@
         1098594.974,
         3699.1
       ]
-    ],
-    "name": "Grand Gendarme"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2633346,
+      1087329
+    ],
     "hoehe": 4618,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2631345.6061657974%2C1085328.5887295217%2C2635345.6061657974%2C1089328.5887295217&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -35438,13 +35527,17 @@
         1088328.589,
         4409.9
       ]
-    ],
-    "name": "Grenzgipfel"
+    ]
   },
   {
-    "gemeinde": "Fieschertal",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2649033,
+      1153614
+    ],
     "hoehe": 4043,
+    "kanton": "Wallis",
+    "gemeinde": "Fieschertal",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2647033.3507705494%2C1151614.2483465401%2C2651033.3507705494%2C1155614.2483465401&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -37049,13 +37142,17 @@
         1154614.248,
         3386.8
       ]
-    ],
-    "name": "Gross Gr\u00fcnhorn"
+    ]
   },
   {
-    "gemeinde": "Fieschertal",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2647712,
+      1155758
+    ],
     "hoehe": 4049,
+    "kanton": "Wallis",
+    "gemeinde": "Fieschertal",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2645711.9072891576%2C1153757.7708213453%2C2649711.9072891576%2C1157757.7708213453&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -38660,13 +38757,17 @@
         1156757.771,
         2801.0
       ]
-    ],
-    "name": "Grosses Fiescherhorn"
+    ]
   },
   {
-    "gemeinde": "Fieschertal",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2648237,
+      1155213
+    ],
     "hoehe": 4025,
+    "kanton": "Wallis",
+    "gemeinde": "Fieschertal",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2646237.484745066%2C1153212.8156756775%2C2650237.484745066%2C1157212.8156756775&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -40271,13 +40372,17 @@
         1156212.816,
         3343.6
       ]
-    ],
-    "name": "Hinter Fiescherhorn"
+    ]
   },
   {
-    "gemeinde": "St. Niklaus",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2632104,
+      1106868
+    ],
     "hoehe": 4219,
+    "kanton": "Wallis",
+    "gemeinde": "St. Niklaus",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2630103.8037289865%2C1104867.6769937344%2C2634103.8037289865%2C1108867.6769937344&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -41882,13 +41987,17 @@
         1107867.677,
         3508.3
       ]
-    ],
-    "name": "Hohberghorn"
+    ]
   },
   {
-    "gemeinde": "Fieschertal",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2640194,
+      1154076
+    ],
     "hoehe": 4158,
+    "kanton": "Wallis",
+    "gemeinde": "Fieschertal",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2638193.780972406%2C1152076.0692578715%2C2642193.780972406%2C1156076.0692578715&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -43493,13 +43602,17 @@
         1155076.069,
         3364.2
       ]
-    ],
-    "name": "Jungfrau"
+    ]
   },
   {
-    "gemeinde": "Pontresina",
-    "kanton": "Graub\u00fcnden",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2789900,
+      1139604
+    ],
     "hoehe": 4020,
+    "kanton": "Graub\u00fcnden",
+    "gemeinde": "Pontresina",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2787900.0641192505%2C1137604.087454295%2C2791900.0641192505%2C1141604.087454295&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -45104,13 +45217,17 @@
         1140604.087,
         3533.3
       ]
-    ],
-    "name": "La Spedla"
+    ]
   },
   {
-    "gemeinde": "Saas-Grund",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2643604,
+      1111886
+    ],
     "hoehe": 4010,
+    "kanton": "Wallis",
+    "gemeinde": "Saas-Grund",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2641603.990935609%2C1109886.0053961326%2C2645603.990935609%2C1113886.0053961326&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -46715,13 +46832,17 @@
         1112886.005,
         3778.4
       ]
-    ],
-    "name": "Lagginhorn"
+    ]
   },
   {
-    "gemeinde": "Grindelwald",
-    "kanton": "Bern",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2652853,
+      1159342
+    ],
     "hoehe": 4042,
+    "kanton": "Bern",
+    "gemeinde": "Grindelwald",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2650852.995564819%2C1157342.4132546063%2C2654852.995564819%2C1161342.4132546063&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -48326,13 +48447,17 @@
         1160342.413,
         3277.6
       ]
-    ],
-    "name": "Lauteraarhorn"
+    ]
   },
   {
-    "gemeinde": "Saas-Fee",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2633251,
+      1105985
+    ],
     "hoehe": 4294,
+    "kanton": "Wallis",
+    "gemeinde": "Saas-Fee",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2631250.8969092537%2C1103984.7377126736%2C2635250.8969092537%2C1107984.7377126736&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -49937,13 +50062,17 @@
         1106984.738,
         4023.9
       ]
-    ],
-    "name": "Lenzspitze"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2630795,
+      1085731
+    ],
     "hoehe": 4527,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2628794.649700886%2C1083731.31555867%2C2632794.649700886%2C1087731.31555867&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -51548,13 +51677,17 @@
         1086731.316,
         3583.7
       ]
-    ],
-    "name": "Liskamm Ostgipfel"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2629837,
+      1086171
+    ],
     "hoehe": 4479,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2627836.5896211737%2C1084171.2972690882%2C2631836.5896211737%2C1088171.2972690882&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -53159,13 +53292,17 @@
         1087171.297,
         3368.6
       ]
-    ],
-    "name": "Liskamm Westgipfel"
+    ]
   },
   {
-    "gemeinde": "Anniviers",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2619263,
+      1102016
+    ],
     "hoehe": 4016,
+    "kanton": "Wallis",
+    "gemeinde": "Anniviers",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2617262.8121181983%2C1100016.1461751016%2C2621262.8121181983%2C1104016.1461751016&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -54770,13 +54907,17 @@
         1103016.146,
         3318.0
       ]
-    ],
-    "name": "L\u2019Epaule du Rothorn"
+    ]
   },
   {
-    "gemeinde": "Lauterbrunnen",
-    "kanton": "Bern",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2642837,
+      1156509
+    ],
     "hoehe": 4107,
+    "kanton": "Bern",
+    "gemeinde": "Lauterbrunnen",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2640836.8604331794%2C1154509.3941718412%2C2644836.8604331794%2C1158509.3941718412&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -56381,13 +56522,17 @@
         1157509.394,
         3330.0
       ]
-    ],
-    "name": "M\u00f6nch"
+    ]
   },
   {
-    "gemeinde": "Randa",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2632893,
+      1106464
+    ],
     "hoehe": 4327,
+    "kanton": "Wallis",
+    "gemeinde": "Randa",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2630892.889464458%2C1104464.0014053674%2C2634892.889464458%2C1108464.0014053674&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -57992,13 +58137,17 @@
         1107464.001,
         3642.5
       ]
-    ],
-    "name": "Nadelhorn"
+    ]
   },
   {
-    "gemeinde": "St. Niklaus",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2632889,
+      1106480
+    ],
     "hoehe": 4325,
+    "kanton": "Wallis",
+    "gemeinde": "St. Niklaus",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2630888.7570852293%2C1104480.3429485604%2C2634888.7570852293%2C1108480.3429485604&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -59603,13 +59752,17 @@
         1107480.343,
         3637.5
       ]
-    ],
-    "name": "Nadelhorn Vorgipfel"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2617725,
+      1098525
+    ],
     "hoehe": 4073,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2615725.459415256%2C1096525.447432962%2C2619725.459415256%2C1100525.447432962&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -61214,13 +61367,17 @@
         1099525.447,
         3309.9
       ]
-    ],
-    "name": "Ober Gabelhorn"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2633549,
+      1085447
+    ],
     "hoehe": 4443,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2631549.4062831323%2C1083446.5186885677%2C2635549.4062831323%2C1087446.5186885677&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -62825,13 +62982,17 @@
         1086446.519,
         4409.5
       ]
-    ],
-    "name": "Parrotspitze"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2616665,
+      1091436
+    ],
     "hoehe": 4241,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2614665.2644257233%2C1089435.5737213013%2C2618665.2644257233%2C1093435.5737213013&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -64436,13 +64597,17 @@
         1092435.574,
         3486.7
       ]
-    ],
-    "name": "Pic Tyndall"
+    ]
   },
   {
-    "gemeinde": "Pontresina",
-    "kanton": "Graub\u00fcnden",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2789946,
+      1139774
+    ],
     "hoehe": 4049,
+    "kanton": "Graub\u00fcnden",
+    "gemeinde": "Pontresina",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2787945.6374376146%2C1137773.5309019168%2C2791945.6374376146%2C1141773.5309019168&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -66047,13 +66212,17 @@
         1140773.531,
         3382.2
       ]
-    ],
-    "name": "Piz Bernina"
+    ]
   },
   {
-    "gemeinde": "Randa",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2621598,
+      1107504
+    ],
     "hoehe": 4135,
+    "kanton": "Wallis",
+    "gemeinde": "Randa",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2619597.5800846056%2C1105504.2449646434%2C2623597.5800846056%2C1109504.2449646434&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -67658,13 +67827,17 @@
         1108504.245,
         3248.6
       ]
-    ],
-    "name": "Punta Burnaby"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2627893,
+      1085242
+    ],
     "hoehe": 4174,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2625893.39189588%2C1083241.6559261766%2C2629893.39189588%2C1087241.6559261766&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -69269,13 +69442,17 @@
         1086241.656,
         3711.8
       ]
-    ],
-    "name": "Punta Felik"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2633989,
+      1086233
+    ],
     "hoehe": 4554,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2631989.204960898%2C1084232.8502342321%2C2635989.204960898%2C1088232.8502342321&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -70880,13 +71057,17 @@
         1087232.85,
         3846.1
       ]
-    ],
-    "name": "Punta Gnifetti"
+    ]
   },
   {
-    "gemeinde": "Saas-Almagell",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2634486,
+      1096941
+    ],
     "hoehe": 4198,
+    "kanton": "Wallis",
+    "gemeinde": "Saas-Almagell",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2632485.594526872%2C1094940.569408937%2C2636485.594526872%2C1098940.569408937&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -72491,13 +72672,17 @@
         1097940.569,
         3778.4
       ]
-    ],
-    "name": "Rimpfischhorn"
+    ]
   },
   {
-    "gemeinde": "Grindelwald",
-    "kanton": "Bern",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2652079,
+      1160071
+    ],
     "hoehe": 4078,
+    "kanton": "Bern",
+    "gemeinde": "Grindelwald",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2650079.2490924248%2C1158071.14551286%2C2654079.2490924248%2C1162071.14551286&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -74102,13 +74287,17 @@
         1161071.146,
         3187.6
       ]
-    ],
-    "name": "Schreckhorn"
+    ]
   },
   {
-    "gemeinde": "Randa",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2632539,
+      1106753
+    ],
     "hoehe": 4241,
+    "kanton": "Wallis",
+    "gemeinde": "Randa",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2630538.8703383952%2C1104753.3879714056%2C2634538.8703383952%2C1108753.3879714056&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -75713,13 +75902,17 @@
         1107753.388,
         3537.4
       ]
-    ],
-    "name": "Stecknadelhorn"
+    ]
   },
   {
-    "gemeinde": "Saas-Almagell",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2635902,
+      1095839
+    ],
     "hoehe": 4190,
+    "kanton": "Wallis",
+    "gemeinde": "Saas-Almagell",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2633902.287638524%2C1093838.9305461813%2C2637902.287638524%2C1097838.9305461813&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -77324,13 +77517,17 @@
         1096838.931,
         3660.5
       ]
-    ],
-    "name": "Strahlhorn"
+    ]
   },
   {
-    "gemeinde": "T\u00e4sch",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2632377,
+      1103633
+    ],
     "hoehe": 4490,
+    "kanton": "Wallis",
+    "gemeinde": "T\u00e4sch",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2630377.085581424%2C1101632.5720072938%2C2634377.085581424%2C1105632.5720072938&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -78935,13 +79132,17 @@
         1104632.572,
         4246.9
       ]
-    ],
-    "name": "T\u00e4schhorn"
+    ]
   },
   {
-    "gemeinde": "Randa",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2621459,
+      1105563
+    ],
     "hoehe": 4505,
+    "kanton": "Wallis",
+    "gemeinde": "Randa",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2619459.0075411433%2C1103562.8676213599%2C2623459.0075411433%2C1107562.8676213599&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -80546,13 +80747,17 @@
         1106562.868,
         3760.1
       ]
-    ],
-    "name": "Weisshorn"
+    ]
   },
   {
-    "gemeinde": "Saas-Almagell",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2644321,
+      1108621
+    ],
     "hoehe": 4023,
+    "kanton": "Wallis",
+    "gemeinde": "Saas-Almagell",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2642320.527626227%2C1106621.4969954132%2C2646320.527626227%2C1110621.4969954132&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -82157,13 +82362,17 @@
         1109621.497,
         3703.2
       ]
-    ],
-    "name": "Weissmies"
+    ]
   },
   {
-    "gemeinde": "T\u00e4sch",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2619460,
+      1101505
+    ],
     "hoehe": 4221,
+    "kanton": "Wallis",
+    "gemeinde": "T\u00e4sch",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2617460.2792368717%2C1099504.659844667%2C2621460.2792368717%2C1103504.659844667&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -83768,13 +83977,17 @@
         1102504.66,
         3597.5
       ]
-    ],
-    "name": "Zinalrothorn"
+    ]
   },
   {
-    "gemeinde": "Zermatt",
-    "kanton": "Wallis",
+    "name": "Aiguille du Croissant",
+    "koordinaten": [
+      2633569,
+      1086823
+    ],
     "hoehe": 4562,
+    "kanton": "Wallis",
+    "gemeinde": "Zermatt",
     "ortho_url": "https://wms.geo.admin.ch/de/?service=WMS&version=1.1.1&request=GetMap&layers=ch.swisstopo.swissimage&styles=default&width=512&height=512&srs=EPSG%3A2056&bbox=2631569.175692626%2C1084822.6363513023%2C2635569.175692626%2C1088822.6363513023&format=image%2Fpng&transparent=FALSE&exceptions=application%2Fvnd.ogc.se_xml&bgcolor=0xFFFFFF",
     "profil_ost": [
       [
@@ -85379,7 +85592,6 @@
         1087822.636,
         4284.0
       ]
-    ],
-    "name": "Zumsteinspitze"
+    ]
   }
 ]

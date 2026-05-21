@@ -17,8 +17,10 @@ profil = get_profil(data)
 
 liste = []
 for i in range(data_count):
-    alle = gemeinden[i] | kantone[i] | hoehen[i] | orthophoto[i] | profil[i]
-    alle["name"] = data["Name"].iloc[i]
+    row = data.iloc[0]
+    geom = row.geometry
+    alle = {"name": row["Name"]}
+    alle = alle | hoehen[i] | kantone[i] | gemeinden[i] | orthophoto[i] | profil[i]
     liste.append(alle)
 
 with open('./data/gipfel-daten.json', 'w') as fp:
