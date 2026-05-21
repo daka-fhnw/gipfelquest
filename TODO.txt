@@ -27,5 +27,5 @@ Weiteres bei genügend Zeit
 - abklären, wie wir Highscores speichern könnten
 - App auf streamlit.io veröffentlichen
 - Weitere Ideen sammeln oder bereits Pitch vorbereiten
-- zwei/drei Sätze für Blogbeitrag vorbereiten
+- vier/fünf Sätze für Blogbeitrag vorbereiten
 ---> Pizza essen
