@@ -1,6 +1,12 @@
+import pandas as pd
 import geopandas as gpd
+import matplotlib.pyplot as plt
 
-data = gpd.read_file('data/gipfel-koordinaten.csv')
+data = pd.read_csv('data/gipfel-koordinaten.csv')
+data = gpd.GeoDataFrame(data, 
+    geometry=gpd.points_from_xy(data['easting'], data['northing']),
+    crs='EPSG:2056'
+)
 
 liste = []
 
