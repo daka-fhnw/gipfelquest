@@ -18,4 +18,3 @@ if __name__ == "__main__":
     data = read_gipfel_koordinaten()
     liste = get_beispiel_merkmal(data)
     print(liste)
-    
