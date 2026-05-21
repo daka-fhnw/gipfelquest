@@ -1,5 +1,13 @@
 # gipfelquest
 
+## Kurzbeschreibung
+
+Im Spiel "gipfelquest" besteht die Möglicheit ihr Bergwissen zu testen. Ziel ist aus unzähligen Bergen mit Höhenprofilen, Koordinaten, Kanton, Karte und Orthophoto unter Zeitdruck und Punktabzug pro benötigter Hilfe die höchst mögliche Punktzahl zu erreichen.
+
+## Preview
+
+hier ein Bild der Oberfläche einfügen
+
 ## Conda
 
 `conda create -n hackathon python=3.14 streamlit requests numpy matplotlib geopandas rasterio fiona owslib -c conda-forge`
@@ -10,6 +18,7 @@
 
 - https://docs.streamlit.io/
 - https://geopandas.org/en/stable/docs.html
+- https://pandas.pydata.org/docs/
 - https://shapely.readthedocs.io/en/stable/
 - https://owslib.readthedocs.io/en/latest/
 - https://numpy.org/doc/2.4/
