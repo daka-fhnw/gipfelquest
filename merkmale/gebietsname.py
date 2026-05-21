@@ -107,8 +107,33 @@ def main():
         .rename(columns={0: "objekte"})
     )
 
-    print(result)
+    #  Finale Ausgabe-Liste 
+    liste = []
+
+    for row in Gipfel.itertuples():
+        name = row.name
+        easting = row.easting
+        northing = row.northing
+
+        objekte = result.set_index("name").loc[name, "objekte"]
+
+        eintrag = {
+            "gipfel": name,
+            "easting": easting,
+            "northing": northing,
+        }
+
+        # Jede Objektart als eigenes Feld
+        for objektart, objektname in objekte.items():
+            eintrag[objektart] = objektname
+
+        liste.append(eintrag)
+
+    print(liste)
+    print(result[result["name"] == "Eiger"])
+    print(result[result["name"] == "Matterhorn"])
 
 
 if __name__ == "__main__":
     main()
+
