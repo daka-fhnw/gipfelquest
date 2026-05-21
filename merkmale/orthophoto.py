@@ -2,6 +2,10 @@ from owslib.wms import WebMapService
 from owslib.util import ResponseWrapper
 import geopandas as gpd
 import pandas as pd
+import warnings
+
+warnings.filterwarnings("ignore")
+warnings.simplefilter("ignore")
 
 data = pd.read_csv('data/gipfel-koordinaten.csv')
 data = gpd.GeoDataFrame(data, 
