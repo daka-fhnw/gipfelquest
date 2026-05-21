@@ -1,6 +1,6 @@
 from read_gipfel_koordinaten import read_gipfel_koordinaten
 
-def get_hoehen(data):
+def get_hoehen_koordinaten(data):
     liste = []
     for row in data.itertuples():
         easting = int(round(row.geometry.x, 0))
@@ -15,5 +15,5 @@ def get_hoehen(data):
 
 if __name__ == "__main__":
     data = read_gipfel_koordinaten()
-    liste = get_hoehen(data)
+    liste = get_hoehen_koordinaten(data)
     print(liste)

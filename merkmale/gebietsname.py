@@ -54,14 +54,14 @@ def perform_join(data, namen, predicate, buffer=None):
     if buffer:
         data["geometry"] = data.geometry.buffer(buffer)
 
-    j = gpd.sjoin(
+    join = gpd.sjoin(
         data,
         namen,
         how="left",
         predicate=predicate
     )
 
-    return j[["Name", "objektart", "objektname", "geometry"]]
+    return join[["Name", "objektart", "objektname", "geometry"]]
 
 def combine_and_filter(*joins):
     joined = pd.concat(joins, ignore_index=True)
@@ -126,17 +126,21 @@ def get_gebietsname(data):
     liste = []
 
     for row in data.itertuples():
-        eintrag = {
-            "gipfel": row.Name,
-            "easting": row.geometry.x,
-            "northing": row.geometry.y
-        }
+        eintrag = {}
 
         eintrag.update(
             result.get(row.Name, {})
         )
 
-        liste.append(eintrag)
+        namen = {}
+        for art in RELEVANTE_ARTEN:
+            if art in eintrag:
+                namen[art.lower()] = eintrag[art]
+            else:
+                namen[art.lower()] = None
+            
+
+        liste.append(namen)
 
     return liste
 
