@@ -10,18 +10,20 @@ if 'falsche_berge' not in st.session_state:
 if 'antwortmoeglichkeiten' not in st.session_state:
     st.session_state['antwortmoeglichkeiten'] = pd.concat([st.session_state.richtiger_berg, st.session_state.falsche_berge], ignore_index=True).sample(frac=1).reset_index(drop=True)
 
-# richtiger_berg = alle_berge.sample(n=1, random_state=None)
-# andere_berge = alle_berge.drop(richtiger_berg.index)
-# falsche_berge= andere_berge.sample(n=3, random_state=None)
-# antwortmoeglichkeiten = pd.concat([richtiger_berg, falsche_berge], ignore_index=True)
-# antwortmoeglichkeiten_random = antwortmoeglichkeiten.sample(frac=1).reset_index(drop=True)
+
 st.write(st.session_state.richtiger_berg["name"],st.session_state.falsche_berge["name"], st.session_state.antwortmoeglichkeiten["name"])
 
 gewaehlter_berg = st.radio(
     "Welcher Berg ist es?",
-    st.session_state.antwortmoeglichkeiten["name"]  # Direkt aus Spalte
+    st.session_state.antwortmoeglichkeiten["name"], 
+    index=None
 
 )
+
+if gewaehlter_berg == st.session_state.richtiger_berg["name"].iloc[0]:
+    st.write("Richtig")
+else:
+    st.write("Falsch")
 
 
 
