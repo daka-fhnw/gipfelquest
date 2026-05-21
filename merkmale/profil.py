@@ -64,8 +64,8 @@ def get_profil(data):
         data_N = get_profile_data(koordinaten_tupel, Direction.NORTH)
 
         profil.append({
-            "east": data_E,
-            "north": data_N,
+            "profil_ost": data_E,
+            "profil_nord": data_N,
         })
     return profil
 
