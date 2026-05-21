@@ -1,3 +1,4 @@
+import json
 from read_gipfel_koordinaten import read_gipfel_koordinaten
 from gemeinde import get_gemeinden
 from kanton import get_kantone
@@ -19,4 +20,5 @@ for i in range(data_count):
     alle = gemeinden[i] | kantone[i] | hoehen[i] | orthophoto[i] | profil[i]
     liste.append(alle)
 
-print(liste)
+with open('./data/gipfel-daten.json', 'w') as fp:
+    json.dump(liste, fp)
