@@ -1,19 +1,10 @@
+import warnings
 from owslib.wms import WebMapService
 from owslib.util import ResponseWrapper
-import geopandas as gpd
-import pandas as pd
-import warnings
+from read_gipfel_koordinaten import read_gipfel_koordinaten
 
 warnings.filterwarnings("ignore")
 warnings.simplefilter("ignore")
-
-data = pd.read_csv('data/gipfel-koordinaten.csv')
-data = gpd.GeoDataFrame(data, 
-    geometry=gpd.points_from_xy(data['easting'], data['northing']),
-    crs='EPSG:2056'
-)
-
-liste = []
 
 GEOADMIN_WMS_URL = "https://wms.geo.admin.ch"
 SWISSIMAGE_LAYER = "ch.swisstopo.swissimage"
@@ -37,21 +28,23 @@ def get_image_from_center(wms: WebMapService,
     )
     return response
 
-wms = WebMapService(GEOADMIN_WMS_URL)
+def get_ortho_url(data):
+    liste = []
+    wms = WebMapService(GEOADMIN_WMS_URL)
+    for row in data.itertuples():
+        easting = row.geometry.x
+        northing = row.geometry.y
 
+        coord = (easting, northing)
+        response = get_image_from_center(wms, coord)
+        url = response.geturl()
 
-for row in data.itertuples():
-    name = row.name
-    easting = row.easting
-    northing = row.northing
-   
-    coord = easting, northing
-    response = get_image_from_center(wms, coord)
-    url = response.geturl()
+        liste.append({
+            "ortho_url": url,
+        })
+    return liste
 
-    liste.append({
-        #WMS Link
-        "WMS URL": url,
-    })
-
-print(liste)
+if __name__ == "__main__":
+    data = read_gipfel_koordinaten()
+    liste = get_ortho_url(data)
+    print(liste)
