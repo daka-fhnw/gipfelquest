@@ -1,139 +1,145 @@
 import geopandas as gpd
 import pandas as pd
+from read_gipfel_koordinaten import read_gipfel_koordinaten
 
 DATEIPFAD = "quellen/swissnames3d_2026_2056.gpkg"
 POLY_LAYER = "swissnames3d_ply"
 
-relevante_arten = ["Grossregion", "Gebiet", "Haupttal", "Landschaftsname", "Gletscher", "Huegelzug"]
-def load_data():
-    Gipfel = gpd.read_file("data/gipfel-koordinaten.csv", crs="EPSG:2056")
-    Gipfel = gpd.GeoDataFrame(
-        Gipfel,
-        geometry=gpd.points_from_xy(Gipfel["easting"], Gipfel["northing"]),
-        crs="EPSG:2056"
-    )
+RELEVANTE_ARTEN = [
+    "Grossregion",
+    "Gebiet",
+    "Haupttal",
+    "Landschaftsname",
+    "Gletscher",
+    "Huegelzug"
+]
 
+def load_namen():
     namen = gpd.read_file(DATEIPFAD, layer=POLY_LAYER)
-    namen = namen.loc[namen["sprachcode"] == "Hochdeutsch inkl. Lokalsprachen"]
-    namen = namen.loc[namen["objektart"].isin(relevante_arten)]
-    namen = namen[["name", "objektart", "objektklasse_tlm", "geometry"]]
 
-    return Gipfel, namen
+    moegliche_namen = [
+        "name",
+        "NAME",
+        "Objektname",
+        "OBJNAME",
+        "objektname",
+        "objektname_tlm",
+        "objektname_de",
+        "objektname_offiziell"
+    ]
 
-def join_normal(Gipfel, namen):
-    namen_ohne_gletscher = namen[namen["objektart"] != "Gletscher"]
-
-    j = gpd.sjoin(
-        Gipfel,
-        namen_ohne_gletscher,
-        how="left",
-        predicate="within"
-    ).rename(columns={"name_right": "objektname", "name_left": "name"})
-
-    return j[["name", "objektart", "objektname", "geometry"]]
-
-def join_border(Gipfel, namen):
-    namen_ohne_gletscher = namen[namen["objektart"] != "Gletscher"]
-
-    Gipfel_buffer = Gipfel.copy()
-    Gipfel_buffer["buffer_grenze"] = Gipfel_buffer.geometry.buffer(200)
-
-    j = gpd.sjoin(
-        Gipfel_buffer.set_geometry("buffer_grenze"),
-        namen_ohne_gletscher,
-        how="left",
-        predicate="intersects"
-    ).rename(columns={"name_right": "objektname", "name_left": "name"})
-
-    if "geometry_left" in j.columns:
-        j = j.drop(columns=["geometry_left"])
-    if "geometry_right" in j.columns:
-        j = j.rename(columns={"geometry_right": "geometry"})
-
-    return j[["name", "objektart", "objektname", "geometry"]]
-
-def join_gletscher(Gipfel, namen):
-    gletscher = namen[namen["objektart"] == "Gletscher"]
-
-    Gipfel_buffer = Gipfel.copy()
-    Gipfel_buffer["buffer_gletscher"] = Gipfel_buffer.geometry.buffer(1000)
-
-    j = gpd.sjoin(
-        Gipfel_buffer.set_geometry("buffer_gletscher"),
-        gletscher,
-        how="left",
-        predicate="intersects"
-    ).rename(columns={"name_right": "objektname", "name_left": "name"})
-
-    if "geometry_left" in j.columns:
-        j = j.drop(columns=["geometry_left"])
-    if "geometry_right" in j.columns:
-        j = j.rename(columns={"geometry_right": "geometry"})
-
-    return j[["name", "objektart", "objektname", "geometry"]]
-
-def combine_and_filter(join_normal_df, join_border_df, join_gletscher_df):
-    joined = pd.concat(
-        [join_normal_df, join_border_df, join_gletscher_df],
-        ignore_index=True
+    name_spalte = next(
+        (c for c in moegliche_namen if c in namen.columns),
+        None
     )
 
-    # Distanz zum Polygonzentrum
+    if name_spalte is None:
+        raise ValueError("Keine Namensspalte gefunden")
+
+    namen = (
+        namen.rename(columns={name_spalte: "objektname"})
+        .query("sprachcode == 'Hochdeutsch inkl. Lokalsprachen'")
+    )
+
+    namen = namen[namen["objektart"].isin(RELEVANTE_ARTEN)]
+
+    return namen[
+        ["objektname", "objektart", "objektklasse_tlm", "geometry"]
+    ]
+
+
+def perform_join(data, namen, predicate, buffer=None):
+    data = data.copy()
+
+    if buffer:
+        data["geometry"] = data.geometry.buffer(buffer)
+
+    j = gpd.sjoin(
+        data,
+        namen,
+        how="left",
+        predicate=predicate
+    )
+
+    return j[["Name", "objektart", "objektname", "geometry"]]
+
+def combine_and_filter(*joins):
+    joined = pd.concat(joins, ignore_index=True)
+
     joined["centroid"] = joined.geometry.centroid
-    joined["distanz"] = joined.apply(
-        lambda r: r.geometry.distance(r.centroid),
-        axis=1
+
+    # Distanz Polygon → eigenes Zentrum
+    joined["distanz"] = (
+        joined.geometry.distance(joined["centroid"])
     )
 
-    # Pro Objektart nur den nächsten behalten
-    idx = joined.groupby(["name", "objektart"])["distanz"].idxmin()
-    joined = joined.loc[idx].drop(columns=["centroid", "distanz"])
+    idx = (
+        joined.groupby(["Name", "objektart"])
+        ["distanz"]
+        .idxmin()
+    )
 
-    return joined
+    return joined.loc[idx].drop(
+        columns=["centroid", "distanz"]
+    )
 
-def main():
-    Gipfel, namen = load_data()
+def get_gebietsname(data):
+    namen = load_namen()
 
-    j1 = join_normal(Gipfel, namen)
-    j2 = join_border(Gipfel, namen)
-    j3 = join_gletscher(Gipfel, namen)
+    normal = perform_join(
+        data,
+        namen[namen["objektart"] != "Gletscher"],
+        predicate="within"
+    )
 
-    joined = combine_and_filter(j1, j2, j3)
+    border = perform_join(
+        data,
+        namen[namen["objektart"] != "Gletscher"],
+        predicate="intersects",
+        buffer=200
+    )
+
+    gletscher = perform_join(
+        data,
+        namen[namen["objektart"] == "Gletscher"],
+        predicate="intersects",
+        buffer=1000
+    )
+
+    joined = combine_and_filter(
+        normal,
+        border,
+        gletscher
+    )
 
     result = (
-        joined.groupby("name")
-        .apply(lambda x: {row.objektart: row.objektname for _, row in x.iterrows()})
-        .reset_index()
-        .rename(columns={0: "objekte"})
+        joined.groupby("Name")
+        .apply(
+            lambda x: {
+                r.objektart: r.objektname
+                for _, r in x.iterrows()
+            }
+        )
+        .to_dict()
     )
 
-    #  Finale Ausgabe-Liste 
     liste = []
 
-    for row in Gipfel.itertuples():
-        name = row.name
-        easting = row.easting
-        northing = row.northing
-
-        objekte = result.set_index("name").loc[name, "objekte"]
-
+    for row in data.itertuples():
         eintrag = {
-            "gipfel": name,
-            "easting": easting,
-            "northing": northing,
+            "gipfel": row.Name,
+            "easting": row.geometry.x,
+            "northing": row.geometry.y
         }
 
-        # Jede Objektart als eigenes Feld
-        for objektart, objektname in objekte.items():
-            eintrag[objektart] = objektname
+        eintrag.update(
+            result.get(row.Name, {})
+        )
 
         liste.append(eintrag)
 
-    print(liste)
-    print(result[result["name"] == "Eiger"])
-    print(result[result["name"] == "Matterhorn"])
-
+    return liste
 
 if __name__ == "__main__":
-    main()
-
+    data = read_gipfel_koordinaten()
+    liste = get_gebietsname(data)
