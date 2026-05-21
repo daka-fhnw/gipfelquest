@@ -1,6 +1,6 @@
 from read_gipfel_koordinaten import read_gipfel_koordinaten
 
-def get_koordinaten_hoehe_merkmal(data):
+def get_hoehen(data):
     liste = []
     for row in data.itertuples():
         elevation = int(round(row.Hoehe, 0))
@@ -11,5 +11,5 @@ def get_koordinaten_hoehe_merkmal(data):
 
 if __name__ == "__main__":
     data = read_gipfel_koordinaten()
-    liste = get_koordinaten_hoehe_merkmal(data)
+    liste = get_hoehen(data)
     print(liste)

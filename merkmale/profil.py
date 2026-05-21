@@ -1,9 +1,7 @@
-from read_gipfel_koordinaten import read_gipfel_koordinaten
 import json
 import requests
 from enum import Enum
-import geopandas as gpd
-
+from read_gipfel_koordinaten import read_gipfel_koordinaten
 
 ##### API Aufrufdefinition #####
 
@@ -59,7 +57,6 @@ def get_profile_data(xy_lv95: tuple[float, float],
 def get_profil(data):
     profil = []
     for row in data.itertuples():
-        name = row.Name
         easting = row.geometry.x
         northing = row.geometry.y
         koordinaten_tupel=[float(easting), float(northing)]
@@ -67,7 +64,6 @@ def get_profil(data):
         data_N = get_profile_data(koordinaten_tupel, Direction.NORTH)
 
         profil.append({
-            # z.B. Gebietsname, Profilkoordinaten, ...
             "east": data_E,
             "north": data_N,
         })
