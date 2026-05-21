@@ -22,6 +22,8 @@ gewaehlter_berg = st.radio(
 
 if gewaehlter_berg == st.session_state.richtiger_berg["name"].iloc[0]:
     st.write("Richtig")
+elif gewaehlter_berg is None:
+    st.write("Noch nichts gewählt")
 else:
     st.write("Falsch")
 
