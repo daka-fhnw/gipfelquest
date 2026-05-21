@@ -1,30 +1,40 @@
+import json
+import requests
 import streamlit as st
+import matplotlib.pyplot as plt
+from matplotlib.axes import Axes
+from enum import Enum
+import pandas as pd
 
-st.set_page_config(layout="wide")  # wichtig für volle Breite
-st.set_page_config(page_title="Gipfelquest")
 
-with st.columns(3)[1]:
-     
+#####################################################################################
+#Auswahl Berg und Anwortmöglichkeiten
+alle_berge = pd.read_json("../data/gipfel-daten.json").reset_index(drop=True)
+if 'richtiger_berg' not in st.session_state:
+    st.session_state['richtiger_berg'] = alle_berge.sample(n=1, random_state=None)
+####################################################################################
 
-     st.title("Willkommen zu Gipfelquest!",text_alignment="center")
-     st.markdown(
-        """ 
-        Hier kannst du herausfinden, ob du die Berge so gut kennst wie du denkst. 
-    
-        Klicke auf den Button unten, um das Spiel zu starten. Viel Spaß! 
-        """,text_alignment="center"
-     )
 
-col1, col2, col3 = st.columns(3)
+def plot_profile_data(data: tuple[list[float], list[float]], 
+                      ax: Axes) -> None:
+    ax.set_aspect("equal")
+    ax.set_xticks([])
+    ax.set_yticks([])
+    x, y = zip(*data)
+    ax.plot(x, y)
 
-with col1:
-    ""
-with col2:
-    col1, col2 = st.columns(2)
-    with col1:
-        st.button("Anleitung")
-    with col2:
-        st.button("Spiel starten!",icon="🎉")
-with col3:
-    ""
+berg = st.session_state['richtiger_berg'].iloc[0]
+data_E = berg.profil_ost
+data_N = berg.profil_nord
+
+print(data_E)
+
+
+fig = plt.figure()
+gs = fig.add_gridspec(1, 2, wspace=0)
+(ax1, ax2) = gs.subplots(sharey=True)
+plot_profile_data(data_E, ax1)
+plot_profile_data(data_N, ax2)
+
+st.pyplot(fig)
 
