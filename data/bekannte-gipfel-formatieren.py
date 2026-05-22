@@ -1,6 +1,6 @@
 import geopandas as gpd
  
-data = gpd.read_file("./quellen/Bekannte_Berggipfel_2_alle_mit_Region.gpkg")
+data = gpd.read_file("./quellen/Bekannte_Berggipfel_2_alle_mit_Region_2.gpkg")
 
 data["Name"] = data["name"]
 data["Hoehe"] = data["hoehe"].str.replace(" m", "", regex=False).astype(float)
