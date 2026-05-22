@@ -25,16 +25,23 @@ class SpielState:
 class ErgebnisState:
     punkte: int = 0
 
+class EinstellungenState:
+    region: str = REGION_ALLE
+
 class AppState:
     gipfel_alle: DataFrame = DataFrame([])
     seite: int = START_SEITE
     spiel: SpielState | None = None
     ergebnis: ErgebnisState | None = None
+    einstellungen: EinstellungenState = EinstellungenState()
 
     def start_anzeigen(self):
         self.seite = START_SEITE
         self.spiel = None
         self.ergebnis = None
+
+    def einstellungen_anzeigen(self):
+        self.seite = EINSTELUNGEN_SEITE
 
     def spiel_starten(self): 
         self.seite = SPIEL_SEITE

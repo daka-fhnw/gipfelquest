@@ -4,17 +4,17 @@ import streamlit as st
 
 from _state import AppState
 
-def get_base64(image_path):
-    with open(image_path, "rb") as img:
+@st.cache_data
+def hintergrund_als_base64():
+    with open("data/Matterhorn.jpg", "rb") as img:
         return base64.b64encode(img.read()).decode()
 
-
 def start_inhalt(state: AppState):
+    img = hintergrund_als_base64()
 
-    img = get_base64("data/Matterhorn.jpg")
     st.snow()
 
-    st.markdown(f"""
+    st.html(f"""
     <style>
     .stApp {{
         background:
@@ -24,36 +24,34 @@ def start_inhalt(state: AppState):
             ),
             url("data:image/jpg;base64,{img}");
         background-size: cover;
-    }} </style>""", unsafe_allow_html=True)
+    }} </style>""")
 
-    st.markdown("""
+    st.html("""
         <h1 style='
             text-align: center;
             font-size: 80px;
             color: white;
             margin-top: 40px;
+            margin-bottom: 0;
         '>
         Gipfelquest
         </h1>
-        """, unsafe_allow_html=True)
+        """)
     
-    st.markdown("""
+    st.html("""
         <div style='
             text-align: center;
             font-size: 24px;
-            margin-top: 60px;
+            margin-top: 0;
             color: white;
         '>    
-        Erkenne bekannte Berge anhand ihrer Merkmale 🏔️
-
-        Jeder zusätzliche Hinweis den du brauchst kostet Zeit ⏱️
-
-        Bist du bereit für die Gipfelquest?
-
+            Erkenne bekannte Berge anhand ihrer Merkmale 🏔️<br/>
+            Jeder zusätzliche Hinweis den du brauchst kostet Zeit ⏱️<br/>
+            Bist du bereit für die Gipfelquest?
         </div>
-        """, unsafe_allow_html=True)
+        """)
     
-    st.markdown("""
+    st.html("""
         <style>
         div.stButton > button {
             height: 50px;
@@ -72,10 +70,8 @@ def start_inhalt(state: AppState):
             transition: 0.2s;
         }
         </style>
-        """, unsafe_allow_html=True)
+        """)
     
-    columns = st.columns((2, 1, 2))
-    columns[1].button('Start Game',use_container_width=True,on_click=state.spiel_starten())
-
-
-
+    columns = st.columns((2, 1, 1, 2))
+    columns[1].button('Spiel starten', use_container_width=True, on_click=state.spiel_starten)
+    columns[2].button('Einstellungen', use_container_width=True, on_click=state.einstellungen_anzeigen)
