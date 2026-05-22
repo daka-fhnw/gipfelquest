@@ -6,10 +6,7 @@ import pandas as pd
 alle_berge = pd.read_json("data/gipfel-daten.json").reset_index(drop=True)
 if 'richtiger_berg' not in st.session_state:
     st.session_state['richtiger_berg'] = alle_berge.sample(n=1, random_state=None)
-if 'falsche_berge' not in st.session_state:
-    st.session_state['falsche_berge'] = alle_berge.drop(st.session_state.richtiger_berg.index).sample(n=3, random_state=None)
-if 'antwortmoeglichkeiten' not in st.session_state:
-    st.session_state['antwortmoeglichkeiten'] = pd.concat([st.session_state.richtiger_berg, st.session_state.falsche_berge], ignore_index=True).sample(frac=1).reset_index(drop=True)
+
 
 
 
