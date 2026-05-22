@@ -6,7 +6,7 @@ import pandas as pd
 
 #####################################################################################
 #Auswahl Berg und Anwortmöglichkeiten
-alle_berge = pd.read_json("../data/gipfel-daten.json").reset_index(drop=True)
+alle_berge = pd.read_json("/data/gipfel-daten.json").reset_index(drop=True)
 if 'richtiger_berg' not in st.session_state:
     st.session_state['richtiger_berg'] = alle_berge.sample(n=1, random_state=None)
 ####################################################################################
