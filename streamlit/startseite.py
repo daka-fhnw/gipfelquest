@@ -8,7 +8,7 @@ def get_base64(image_path):
     with open(image_path, "rb") as img:
         return base64.b64encode(img.read()).decode()
 
-img = get_base64("quellen/Matterhorn.jpg")
+img = get_base64("data/Matterhorn.jpg")
 
 st.markdown(f"""
 <style>
@@ -77,6 +77,7 @@ columns = st.columns((3, 1, 3))
 button_pressed = columns[1].button('Start Game',use_container_width=True)
 if button_pressed:
     st.snow() 
+    
 
 
 
