@@ -1,6 +1,5 @@
 import streamlit as st
 import matplotlib.pyplot as plt
-import pandas as pd
 from matplotlib.axes import Axes
 from _state import AppState
 import numpy as np
@@ -10,25 +9,21 @@ def gipfel_anzeige(state: AppState):
     st.markdown(f"## Berg {state.spiel.gipfel_index + 1}")
 
 @st.fragment(run_every=1)
-def zeit_anzeige(state: AppState):
+def zeit_und_punkte_anzeige(state: AppState):
     restzeit = state.get_restzeit()
     if restzeit <= 0:
         state.zeit_abgelaufen()
         st.rerun()
     minuten, sekunden = divmod(max(restzeit, 0), 60)
     zeit_str = '{:02}:{:02}'.format(int(minuten), int(sekunden))
-    st.markdown(f"### Zeit: {zeit_str}")
-
-def punkt_anzeige(state: AppState):
-    st.markdown(f"### Punkte: {state.spiel.punkte}")
+    st.markdown(f"### Zeit: {zeit_str}, Punkte: {state.spiel.punkte}")
 
 def optionen_anzeige(state: AppState):
+    st.markdown("### Antwortmöglichkeiten")
     richtige_zeile = state.get_gipfel_zeile()
     for zeile in state.spiel.antwort_optionen.itertuples():
-        if (richtige_zeile["id"] == zeile.id):
-            st.button(f"{zeile.name} (richtig)", on_click=state.richtige_antwort)
-        else:
-            st.button(zeile.name, on_click=state.falsche_antwort)
+        funktion = state.richtige_antwort if richtige_zeile["id"] == zeile.id else state.falsche_antwort
+        st.button(zeile.name, on_click=funktion, use_container_width=True)
 
 def profil_plot(data: list[list[float,float]], ax: Axes, global_min: int):
     x, y = zip(*data)
@@ -97,11 +92,11 @@ def gebietsnamen_merkmal(state: AppState):
 
 def orthophoto_merkmal(state: AppState):
     gipfel_zeile = state.get_gipfel_zeile()
-    with state.merkmal_box("merkmal_orthophot", "Orthophoto / Region", st):
+    with state.merkmal_box("merkmal_orthophoto", "Orthophoto / Region", st):
         st.image(gipfel_zeile["ortho_url"])
 
 def spiel_hauptbereich(state: AppState):
-    st.markdown("# Gipfelquest")
+    st.markdown(f"# Gipfelquest - Gipfel {state.spiel.gipfel_index + 1}")
     profil_merkmal(state)
     spalte1, spalte2 = st.columns(2)
     with spalte1:
@@ -111,10 +106,8 @@ def spiel_hauptbereich(state: AppState):
         orthophoto_merkmal(state)
 
 def spiel_bereich_rechts(state: AppState):
-    zeit_anzeige(state)
-    punkt_anzeige(state)
-    
-    st.markdown("## Optionen")
+    zeit_und_punkte_anzeige(state)
+    st.button("Aufgeben", on_click=state.start_anzeigen)
     optionen_anzeige(state)
 
 def spiel_inhalt(state: AppState):
@@ -124,5 +117,4 @@ def spiel_inhalt(state: AppState):
     with rechts:
         spiel_bereich_rechts(state)
 
-    st.button("Aufgeben", on_click=state.start_anzeigen)
     
