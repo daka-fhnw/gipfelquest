@@ -49,8 +49,9 @@ class AppState:
         self.spiel.punkte = 0
         self.spiel.zeit_abzug = 0
         self.spiel.start_zeit = time.time()
-        self.spiel.gipfel_auswahl = get_gipfel_auswahl(self.gipfel_alle)
-        self.spiel.antwort_optionen = get_antwort_optionen(self.gipfel_alle, self.get_gipfel_zeile())
+        self.spiel.gipfel_auswahl = get_gipfel_auswahl(self.gipfel_alle, self.einstellungen.region)
+        self.spiel.antwort_optionen = get_antwort_optionen(
+            self.gipfel_alle, self.get_gipfel_zeile(), self.einstellungen.region)
         st.session_state.highscore_entered = False
 
     def merkmal_box(self, 
@@ -90,7 +91,8 @@ class AppState:
             return
         self.spiel.zeit_abzug = 0
         self.spiel.start_zeit = time.time()
-        self.spiel.antwort_optionen = get_antwort_optionen(self.gipfel_alle, self.get_gipfel_zeile())
+        self.spiel.antwort_optionen = get_antwort_optionen(
+            self.gipfel_alle, self.get_gipfel_zeile(), self.einstellungen.region)
         self._merkmale_reset()
 
     def zeit_abgelaufen(self):

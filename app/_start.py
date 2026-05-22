@@ -73,5 +73,5 @@ def start_inhalt(state: AppState):
         """)
     
     columns = st.columns((2, 1, 1, 2))
-    columns[1].button('Spiel starten', use_container_width=True, on_click=state.spiel_starten)
-    columns[2].button('Einstellungen', use_container_width=True, on_click=state.einstellungen_anzeigen)
+    columns[1].button('Spiel starten', on_click=state.spiel_starten)
+    columns[2].button('Einstellungen', on_click=state.einstellungen_anzeigen)
