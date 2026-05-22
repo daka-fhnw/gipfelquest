@@ -6,13 +6,19 @@ Im Spiel "gipfelquest" besteht die Möglicheit ihr Bergwissen zu testen. Ziel is
 
 ## Preview
 
-hier ein Bild der Oberfläche einfügen
+![Screenshot](xxx/xxx.png)
 
-## Conda
+## Installation
+
+### Conda Environment
 
 `conda create -n hackathon python=3.14 streamlit requests numpy matplotlib geopandas rasterio fiona owslib -c conda-forge`
 
 `conda activate hackathon`
+
+### Download
+
+Git Repsoitory klonen und mit `streamlit run streamlit/xxx.py` im Terminal Seite über den angezeigten Link öffnen.
 
 ## Dokumentationen
 
