@@ -3,7 +3,7 @@ import json
 import os
 
 from _state import AppState
-HIGHSCORE_FILE = "app/highscores.json"
+HIGHSCORE_FILE = "highscore/data.json"
 
 # Platzhalter
 DEFAULT_DATA = {

@@ -142,3 +142,6 @@ python_cache_key.md5
 
 ## Quellenverzeichnis ignorieren
 quellen/**
+
+## Highscore ignorieren
+highscore/**
