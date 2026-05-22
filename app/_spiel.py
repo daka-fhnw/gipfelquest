@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit.delta_generator import DeltaGenerator
 
 from _state import AppState
 
@@ -6,25 +7,25 @@ def gipfel_anzeige(state: AppState):
     st.markdown(f"## Berggipfel {state.spiel.gipfel_index + 1}")
 
 @st.fragment(run_every=1)
-def zeit_anzeige(state: AppState):
+def zeit_anzeige(state: AppState, parent: DeltaGenerator = st):
     restzeit = state.get_restzeit()
     if restzeit <= 0:
         state.zeit_abgelaufen()
         st.rerun()
     minuten, sekunden = divmod(max(restzeit, 0), 60)
     zeit_str = '{:02}:{:02}'.format(int(minuten), int(sekunden))
-    st.markdown(f"### Zeit: {zeit_str}")
+    parent.markdown(f"### Zeit: {zeit_str}")
 
-def punkt_anzeige(state: AppState):
-    st.markdown(f"### Punkte: {state.spiel.punkte}")
+def punkt_anzeige(state: AppState, parent: DeltaGenerator = st):
+    parent.markdown(f"### Punkte: {state.spiel.punkte}")
 
-def optionen_anzeige(state: AppState):
+def optionen_anzeige(state: AppState, parent: DeltaGenerator = st):
     richtige_zeile = state.get_gipfel_zeile()
     for zeile in state.spiel.antwort_optionen.itertuples():
         if (richtige_zeile["id"] == zeile.id):
-            st.button(f"{zeile.name} (richtig)", on_click=state.richtige_antwort)
+            parent.button(f"{zeile.name} (richtig)", on_click=state.richtige_antwort)
         else:
-            st.button(zeile.name, on_click=state.falsche_antwort)
+            parent.button(zeile.name, on_click=state.falsche_antwort)
 
 def spiel_inhalt(state: AppState):
     st.markdown("# Spiel")
