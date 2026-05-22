@@ -1,5 +1,5 @@
 import base64
-
+import time as time
 import streamlit as st
 
 from _state import AppState
@@ -8,13 +8,11 @@ def get_base64(image_path):
     with open(image_path, "rb") as img:
         return base64.b64encode(img.read()).decode()
 
-def start_mit_schnee(state: AppState):
-    st.snow()
-    state.spiel_starten()
 
 def start_inhalt(state: AppState):
 
     img = get_base64("data/Matterhorn.jpg")
+    st.snow()
 
     st.markdown(f"""
     <style>
@@ -76,10 +74,8 @@ def start_inhalt(state: AppState):
         </style>
         """, unsafe_allow_html=True)
     
-
-
     columns = st.columns((2, 1, 2))
-    columns[1].button('Start Game',use_container_width=True,on_click=start_mit_schnee,args=(state,))
+    columns[1].button('Start Game',use_container_width=True,on_click=state.spiel_starten())
 
 
 
