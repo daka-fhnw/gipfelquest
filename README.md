@@ -48,6 +48,10 @@ Git Repsoitory klonen und mit `streamlit run app/gipfelquest.py` im Terminal die
 
 - https://www.swisstopo.admin.ch/de/landschaftsmodell-swissnames3d
 
+### Reliefkarteschweiz
+
+- https://www.swisstopo.admin.ch/de/ubersichtskarten-der-schweiz
+
 ### Liste Berggipfel:
 
 - http://zirbitzkogel.at/blog/wp-content/uploads/2019/08/kmz/mountain_peaks_ALPS.kmz
