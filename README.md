@@ -18,7 +18,7 @@ Im Spiel "gipfelquest" besteht die Möglicheit ihr Bergwissen zu testen. Ziel is
 
 ### Download
 
-Git Repsoitory klonen und mit `streamlit run app/gipfelquest.py` im Terminal die Webseite über den angezeigten Link öffnen.
+Git Repository klonen und mit `streamlit run app/gipfelquest.py` im Terminal die Webseite über den angezeigten Link öffnen.
 
 ## Dokumentationen
 
