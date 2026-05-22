@@ -44,6 +44,7 @@ class AppState:
         self.spiel.start_zeit = time.time()
         self.spiel.gipfel_auswahl = get_gipfel_auswahl(self.gipfel_alle)
         self.spiel.antwort_optionen = get_antwort_optionen(self.gipfel_alle, self.get_gipfel_zeile())
+        st.session_state.highscore_entered = False
 
     def merkmal_box(self, 
                     id: str, 
