@@ -10,15 +10,15 @@ SPIEL_SEITE = 2
 ERGEBNIS_SEITE = 3
 
 ZEIT_SEKUNDEN = 60
-PUNKTE_INITIAL = 100
+MERKMAL_ZEIT_ABZUG = 10
 RESTZEIT_FAKTOR = 1
-FALSCH_ABZUG = 50
 ANZAHL_GIPFEL = 10
 ANTWORT_OPTIONEN = 4
 
 class SpielState: 
-    start_zeit: int = 0
     punkte: int = 0
+    start_zeit: int = 0
+    zeit_abzug: int = 0
     gipfel_auswahl: DataFrame = DataFrame([])
     gipfel_index: int = 0
     antwort_optionen: DataFrame = DataFrame([])
@@ -63,8 +63,9 @@ def get_antwort_optionen() -> DataFrame:
 def spiel_starten(): 
     state.seite = SPIEL_SEITE
     state.spiel = SpielState()
+    state.spiel.punkte = 0
+    state.spiel.zeit_abzug = 0
     state.spiel.start_zeit = time.time()
-    state.spiel.punkte = PUNKTE_INITIAL
     state.spiel.gipfel_auswahl = get_gipfel_auswahl()
     state.spiel.antwort_optionen = get_antwort_optionen()
 
@@ -85,27 +86,29 @@ def naechster_gipfel():
     if state.spiel.gipfel_index >= total:
         spiel_beendet()
         return
+    state.spiel.zeit_abzug = 0
     state.spiel.start_zeit = time.time()
     state.spiel.antwort_optionen = get_antwort_optionen()
 
-def get_restzeit() -> int: 
+def get_restzeit() -> int:
+    abzug = state.spiel.zeit_abzug
     verstrichen = time.time() - state.spiel.start_zeit
-    return round(ZEIT_SEKUNDEN - verstrichen)
+    return round(ZEIT_SEKUNDEN - verstrichen - abzug)
 
 def zeit_abgelaufen():
     naechster_gipfel()
     st.rerun()
 
 def falsche_antwort():
-    punkte_update(-FALSCH_ABZUG)
+    naechster_gipfel()
 
 def richtige_antwort():
     restzeit = get_restzeit()
     state.spiel.punkte += int(restzeit * RESTZEIT_FAKTOR)
     naechster_gipfel()
 
-def punkte_update(delta: int):
-    state.spiel.punkte += delta
+def zeit_abzug(wert: int):
+    state.spiel.zeit_abzug += wert
 
 def start_seite():
     st.markdown("# Willkomen")
@@ -137,6 +140,7 @@ def optionen_anzeige():
 def spiel_seite():
     st.markdown("# Spiel")
     st.button("Aufgeben", on_click=spiel_aufgeben)
+    st.button("Aufklappen", on_click=zeit_abzug, args=[10])
     gipfel_anzeige()
     zeit_anzeige()
     punkt_anzeige()
