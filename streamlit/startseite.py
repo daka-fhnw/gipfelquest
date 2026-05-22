@@ -40,11 +40,10 @@ st.markdown("""
         font-size: 24px;
         margin-top: 60px;
         color: white;
-    '>
-    
-    Erkenne bekannte Berge anhand ihrer Merkmale. 🏔️
+    '>    
+    Erkenne bekannte Berge anhand ihrer Merkmale 🏔️
 
-    Jeder zusätzliche Hinweis den du brauchst kostet Zeit. ⏱️
+    Jeder zusätzliche Hinweis den du brauchst kostet Zeit ⏱️
 
     Bist du bereit für die Gipfelquest?
 
