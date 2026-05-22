@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit.delta_generator import DeltaGenerator
 import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.axes import Axes
@@ -11,61 +10,80 @@ def gipfel_anzeige(state: AppState):
     st.markdown(f"## Berg {state.spiel.gipfel_index + 1}")
 
 @st.fragment(run_every=1)
-def zeit_anzeige(state: AppState, parent: DeltaGenerator = st):
+def zeit_anzeige(state: AppState):
     restzeit = state.get_restzeit()
     if restzeit <= 0:
         state.zeit_abgelaufen()
         st.rerun()
     minuten, sekunden = divmod(max(restzeit, 0), 60)
     zeit_str = '{:02}:{:02}'.format(int(minuten), int(sekunden))
-    parent.markdown(f"### Zeit: {zeit_str}")
+    st.markdown(f"### Zeit: {zeit_str}")
 
-def punkt_anzeige(state: AppState, parent: DeltaGenerator = st):
-    parent.markdown(f"### Punkte: {state.spiel.punkte}")
+def punkt_anzeige(state: AppState):
+    st.markdown(f"### Punkte: {state.spiel.punkte}")
 
-def optionen_anzeige(state: AppState, parent: DeltaGenerator = st):
+def optionen_anzeige(state: AppState):
     richtige_zeile = state.get_gipfel_zeile()
     for zeile in state.spiel.antwort_optionen.itertuples():
         if (richtige_zeile["id"] == zeile.id):
-            parent.button(f"{zeile.name} (richtig)", on_click=state.richtige_antwort)
+            st.button(f"{zeile.name} (richtig)", on_click=state.richtige_antwort)
         else:
-            parent.button(zeile.name, on_click=state.falsche_antwort)
+            st.button(zeile.name, on_click=state.falsche_antwort)
 
-def plot_profile_data(data: tuple[list[float], list[float]], 
-                      ax: Axes) -> None:
-    
+def profil_plot(data: list[list[float,float]], ax: Axes, global_min: int):
+    x, y = zip(*data)
     ax.set_aspect("equal")
     ax.set_xticks([])
     ax.set_yticks([])
-    x, y = zip(*data)
+    ax.plot(x, y, color="black", linewidth=1)  # <- Design Graph, vielleicht anpassan an Gesamtdesign
+    ax.fill_between(x, y, global_min, color="lightgray") # <- Hintergrundfarbe Profil, vielleicht anpassan an Gesamtdesign
+    ax.set_facecolor("#D3ECF8") # <- Hintergrundfarbe Himmel, vielleicht anpassan an Gesamtdesign
+
+def profil_merkmal(state: AppState):
+    gipfel_zeile = state.get_gipfel_zeile()
+    data_E = gipfel_zeile["profil_ost"]
+    data_N = gipfel_zeile["profil_nord"]
 
     # Feststellung Extremwerte für spätere gleiche Einfärbung
     y_E = np.array([p[1] for p in data_E])
     y_N = np.array([p[1] for p in data_N])
     global_min = min(y_E.min(), y_N.min())
 
-    ax.plot(x,y,color="black",linewidth=1)  # <- Design Graph, vielleicht anpassan an Gesamtdesign
-    ax.fill_between(x,y,global_min,color="lightgray") # <- Hintergrundfarbe Profil, vielleicht anpassan an Gesamtdesign
-    ax.set_facecolor("#D3ECF8") # <- Hintergrundfarbe Himmel, vielleicht anpassan an Gesamtdesign
-
-
-def spiel_inhalt(state: AppState):
-   
-    gipfelzeile = state.get_gipfel_zeile()
-    st.markdown("# Gipfelquest")
-
-    data_E = gipfelzeile["profil_ost"]
-    data_N = gipfelzeile["profil_nord"]
     fig = plt.figure()
     gs = fig.add_gridspec(1, 2, wspace=0)
     (ax1, ax2) = gs.subplots(sharey=True)
-    plot_profile_data(data_E, ax1)
-    plot_profile_data(data_N, ax2)
     ax1.set_title("Profil von West nach Ost")
     ax2.set_title("Profil von Süd nach Nord")
 
-    st.pyplot(fig)
+    profil_plot(data_E, ax1, global_min)
+    profil_plot(data_N, ax2, global_min)
 
+    with st.expander("Bergprofil", expanded=True):
+        st.pyplot(fig)
+
+def wms_koordinaten_hoehe_merkmal():
+    pass
+
+def spiel_hauptbereich(state: AppState):
+    st.markdown("# Gipfelquest")
+    profil_merkmal(state)
+
+def spiel_bereich_rechts(state: AppState):
+    zeit_anzeige(state)
+    punkt_anzeige(state)
+    
+    st.markdown("## Optionen")
+    optionen_anzeige(state)
+
+def spiel_inhalt(state: AppState):
+    (haupt, rechts) = st.columns(spec=[0.7, 0.3])
+    with haupt:
+        spiel_hauptbereich(state)  
+    with rechts:
+        spiel_bereich_rechts(state)
+
+def test(state: AppState):
+    gipfelzeile = state.get_gipfel_zeile()
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown("## Merkmale")
@@ -108,12 +126,7 @@ def spiel_inhalt(state: AppState):
         with state.merkmal_box("merkmal2", "Merkmal Orthophoto / Region", st):
             st.image(gipfelzeile["ortho_url"])
 
-    with col3: 
-        zeit_anzeige(state)
-        punkt_anzeige(state)
-    
-        st.markdown("## Optionen")
-        optionen_anzeige(state)
 
     
     st.button("Aufgeben", on_click=state.start_anzeigen)
+    
