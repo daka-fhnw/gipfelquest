@@ -8,9 +8,14 @@ def get_base64(image_path):
     with open(image_path, "rb") as img:
         return base64.b64encode(img.read()).decode()
 
-img = get_base64("data/Matterhorn.jpg")
+def start_mit_schnee(state: AppState):
+    st.snow()
+    state.spiel_starten()
 
 def start_inhalt(state: AppState):
+
+    img = get_base64("data/Matterhorn.jpg")
+
     st.markdown(f"""
     <style>
     .stApp {{
@@ -70,9 +75,11 @@ def start_inhalt(state: AppState):
         }
         </style>
         """, unsafe_allow_html=True)
+    
+
 
     columns = st.columns((2, 1, 2))
-    columns[1].button('Start Game',use_container_width=True,on_click=state.spiel_starten)
-    #st.button("Starten", on_click=state.spiel_starten)
+    columns[1].button('Start Game',use_container_width=True,on_click=start_mit_schnee,args=(state,))
+
 
 
