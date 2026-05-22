@@ -64,7 +64,8 @@ class AppState:
             merkmal_state.id = id
             merkmal_state.zeit_abzug = zeit_abzug
             self.spiel.merkmale[id] = merkmal_state
-        return parent.expander(label, key=id, on_change=self._merkmal_on_change, args=[id])
+        label_mit_abzug = f"{label} (-{zeit_abzug} Sekunden)"
+        return parent.expander(label_mit_abzug, key=id, on_change=self._merkmal_on_change, args=[id])
 
     def _merkmal_on_change(self, id: str):
         aufgeklappt = st.session_state[id]

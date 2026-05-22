@@ -61,12 +61,54 @@ def profil_merkmal(state: AppState):
     with st.expander("Bergprofil", expanded=True):
         st.pyplot(fig)
 
-def wms_koordinaten_hoehe_merkmal():
-    pass
+def koordinaten_hoehe_merkmal(state: AppState):
+    gipfel_zeile = state.get_gipfel_zeile()
+    with state.merkmal_box("merkmal_koord_hoehe", "Koordinaten / Höhe", st):
+        schweiz = rasterio.open("streamlit/Uebersichtskarte_Schweiz.tif")
+        r = schweiz.read(1)
+        g = schweiz.read(2)
+        b = schweiz.read(3)
+        rgb = np.dstack((r, g, b))
+
+        punkt_x = gipfel_zeile['koordinate_x']
+        punkt_y = gipfel_zeile['koordinate_y']
+        hoehe = gipfel_zeile["hoehe"]
+
+        row, col = schweiz.index(punkt_x, punkt_y)
+
+        fig, ax = plt.subplots(figsize=(15, 9))
+
+        ax.imshow(rgb, interpolation="nearest")
+        ax.plot(col, row, "ro", markersize=8)
+        ax.axis("off")
+
+        st.html(f"<b>Ost:</b> {punkt_x}, <b>Nord:</b> {punkt_y}, <b>Höhe:</b> {hoehe}")
+        st.pyplot(fig)
+
+def gebietsnamen_merkmal(state: AppState):
+    gipfel_zeile = state.get_gipfel_zeile()
+    with state.merkmal_box("merkmal_gebietsnamen", "Gebietsnamen", st):
+        st.html(f"""<b>Kanton:</b> {gipfel_zeile['kanton'] or "-"}<br/>
+                    <b>Gemeinde:</b> {gipfel_zeile['gemeinde'] or "-"}<br/>
+                    <b>Gebiet:</b> {gipfel_zeile['gebiet'] or "-"}<br/>
+                    <b>Haupttal:</b> {gipfel_zeile['haupttal'] or "-"}<br/>
+                    <b>Gletscher:</b> {gipfel_zeile['gletscher'] or "-"}<br/>
+                    <b>Landschaftsname:</b> {gipfel_zeile['landschaftsname'] or "-"}""")
+
+def orthophoto_merkmal(state: AppState):
+    gipfel_zeile = state.get_gipfel_zeile()
+    with state.merkmal_box("merkmal_orthophot", "Orthophoto / Region", st):
+        st.image(gipfel_zeile["ortho_url"])
 
 def spiel_hauptbereich(state: AppState):
     st.markdown("# Gipfelquest")
     profil_merkmal(state)
+    spalte1, spalte2 = st.columns(2)
+    with spalte1:
+        koordinaten_hoehe_merkmal(state)
+        gebietsnamen_merkmal(state)
+    with spalte2:
+        orthophoto_merkmal(state)
 
 def spiel_bereich_rechts(state: AppState):
     zeit_anzeige(state)
@@ -82,51 +124,5 @@ def spiel_inhalt(state: AppState):
     with rechts:
         spiel_bereich_rechts(state)
 
-def test(state: AppState):
-    gipfelzeile = state.get_gipfel_zeile()
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown("## Merkmale")
-    
-        with state.merkmal_box("merkmal4", "Merkmal Koordinaten / Höhe", st):
-            schweiz = rasterio.open("streamlit/Uebersichtskarte_Schweiz.tif")
-            r = schweiz.read(1)
-            g = schweiz.read(2)
-            b = schweiz.read(3)
-            rgb = np.dstack((r, g, b))
-
-            punkt_x = gipfelzeile['koordinate_x']
-            punkt_y = gipfelzeile['koordinate_y']
-
-            row, col = schweiz.index(punkt_x, punkt_y)
-
-            fig, ax = plt.subplots(figsize=(15, 9))
-
-            ax.imshow(rgb, interpolation="nearest")
-            ax.plot(col, row, "ro", markersize=8)
-        
-            ax.axis("off")
-            st.pyplot(fig)
-
-            st.write(f"Ost: {gipfelzeile['koordinate_x']}")
-            st.write(f"Nord: {gipfelzeile['koordinate_y']}")
-            st.write(f"Höhe: {gipfelzeile['hoehe']}")
-        
-        with state.merkmal_box("merkmal1", "Metadaten Berg", st):
-            st.write(f"Kanton: {gipfelzeile['kanton']}")                                     #Gebietsnamen/ Kanton")
-            st.write(f"Gebiet: {gipfelzeile['gebiet']}")
-            st.write(f"Haupttal: {gipfelzeile['haupttal']}")
-            st.write(f"Gletscher: {gipfelzeile['gletscher']}")
-            st.write(f"Gemeinde: {gipfelzeile['gemeinde']}")
-            st.write(f"Landschaftsname: {gipfelzeile['landschaftsname']}")
-
-    with col2:
-        gipfel_anzeige(state)
-
-        with state.merkmal_box("merkmal2", "Merkmal Orthophoto / Region", st):
-            st.image(gipfelzeile["ortho_url"])
-
-
-    
     st.button("Aufgeben", on_click=state.start_anzeigen)
     

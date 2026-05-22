@@ -1,9 +1,11 @@
+import numpy as np
 import pandas as pd
 from pandas import DataFrame, Series
 from _konstanten import ANTWORT_OPTIONEN, ANZAHL_GIPFEL, REGION_ALLE
 
 def get_gipfel_daten() -> DataFrame:
     gipfel_daten = pd.read_json("data/gipfel-daten.json").reset_index(drop=True)
+    gipfel_daten = gipfel_daten.replace({np.nan: None})
     gipfel_daten.insert(0, column="id", value=gipfel_daten.index + 1)
     return gipfel_daten
 
