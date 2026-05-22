@@ -2,6 +2,7 @@ import time
 import streamlit as st
 import pandas as pd
 from pandas import DataFrame, Series
+from streamlit.delta_generator import DeltaGenerator
 
 STATE_KEY = "app-state"
 
@@ -15,6 +16,11 @@ RESTZEIT_FAKTOR = 1
 ANZAHL_GIPFEL = 10
 ANTWORT_OPTIONEN = 4
 
+class MerkmalState:
+    id: str = ""
+    zeit_abzug: int = 0
+    aktiviert: bool = False
+
 class SpielState: 
     punkte: int = 0
     start_zeit: int = 0
@@ -22,6 +28,7 @@ class SpielState:
     gipfel_auswahl: DataFrame = DataFrame([])
     gipfel_index: int = 0
     antwort_optionen: DataFrame = DataFrame([])
+    merkmale: dict[str, MerkmalState] = {}
 
 class ErgebnisState:
     punkte: int = 0
@@ -89,6 +96,7 @@ def naechster_gipfel():
     state.spiel.zeit_abzug = 0
     state.spiel.start_zeit = time.time()
     state.spiel.antwort_optionen = get_antwort_optionen()
+    merkmale_reset()
 
 def get_restzeit() -> int:
     abzug = state.spiel.zeit_abzug
@@ -137,14 +145,44 @@ def optionen_anzeige():
         else:
             st.button(zeile.name, on_click=falsche_antwort)
 
+def merkmal_on_change(id: str):
+    aufgeklappt = st.session_state[id]
+    merkmal_state = state.spiel.merkmale[id]
+    if aufgeklappt and not merkmal_state.aktiviert:
+        zeit_abzug(merkmal_state.zeit_abzug)
+        merkmal_state.aktiviert = True
+
+def merkmal_anlegen(id: str, 
+                    label: str, 
+                    parent: DeltaGenerator, 
+                    zeit_abzug: int = MERKMAL_ZEIT_ABZUG) -> DeltaGenerator:
+    if id not in state.spiel.merkmale.keys():
+        merkmal_state = MerkmalState()
+        merkmal_state.id = id
+        merkmal_state.zeit_abzug = zeit_abzug
+        state.spiel.merkmale[id] = merkmal_state
+    return parent.expander(label, key=id, on_change=merkmal_on_change, args=[id])
+
+def merkmale_reset():
+    merkmale = state.spiel.merkmale
+    ids = merkmale.keys()
+    for id in ids:
+        st.session_state[id] = False
+        merkmale[id].aktiviert = False
+
 def spiel_seite():
     st.markdown("# Spiel")
     st.button("Aufgeben", on_click=spiel_aufgeben)
-    st.button("Aufklappen", on_click=zeit_abzug, args=[10])
     gipfel_anzeige()
     zeit_anzeige()
     punkt_anzeige()
     optionen_anzeige()
+    st.markdown("# Merkmale")
+    with merkmal_anlegen("merkmal1", "Merkmal 1", st):
+        st.markdown("Test 123...")
+    merkmal_anlegen("merkmal2", "Merkmal 2", st)
+    merkmal_anlegen("merkmal3", "Merkmal 3", st)
+    merkmal_anlegen("merkmal4", "Merkmal 4", st)
 
 def ergebnis_seite():
     st.markdown("# Ergebnis")
