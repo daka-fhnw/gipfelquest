@@ -2,12 +2,13 @@ import streamlit as st
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import pandas as pd
+import rasterio #####################################################
+import numpy as np ####################################################
+
 
 alle_berge = pd.read_json("data/gipfel-daten.json").reset_index(drop=True)
 if 'richtiger_berg' not in st.session_state:
     st.session_state['richtiger_berg'] = alle_berge.sample(n=1, random_state=None)
-
-
 
 
 st.set_page_config(layout="wide")  # wichtig für volle Breite
@@ -23,29 +24,28 @@ col1, col2, col3 = st.columns(3)
 with col1:
     with st.expander("Merkmal: Schnitt Nord", expanded=True): st.write("")                  #Nordschnitt
 
+
     with st.expander("Merkmal: Koordinaten / Höhe"):  
 
         #Karte Schweiz mit Punkt
-        schweiz = gpd.read_file("streamlit/LANDESGEBIET.gpkg")
+        schweiz = rasterio.open("streamlit/Uebersichtskarte_Schweiz.tif") #######################################
+        r = schweiz.read(1) ########################################
+        g = schweiz.read(2) ###########################################
+        b = schweiz.read(3) ##########################################
+        rgb = np.dstack((r, g, b))  ##################################################
+
         punkt_x = st.session_state.richtiger_berg['koordinate_x'].iloc[0]
         punkt_y = st.session_state.richtiger_berg['koordinate_y'].iloc[0]
 
-        fig, ax = plt.subplots(figsize=(12,12))
+        row, col = schweiz.index(punkt_x, punkt_y)
 
-        schweiz.plot(
-            ax=ax,
-            facecolor="white",
-            edgecolor="black",
-            linewidth=1)
-        ax.scatter(
-            punkt_x,
-            punkt_y,
-            s=150,
-            color="red")
+        fig, ax = plt.subplots(figsize=(15, 9))
 
-        ax.axis("off")
-        plt.tight_layout()
-        st.pyplot(fig)  
+        ax.imshow(rgb, interpolation="nearest")
+        ax.plot(col, row, "ro", markersize=8)
+    
+        ax.axis("off") ######################
+        st.pyplot(fig)##############################
 
         st.write(f"Ost: {st.session_state.richtiger_berg['koordinate_x'].iloc[0]}")
         st.write(f"Nord: {st.session_state.richtiger_berg['koordinate_y'].iloc[0]}")
