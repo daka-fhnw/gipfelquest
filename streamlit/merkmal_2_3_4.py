@@ -2,8 +2,8 @@ import streamlit as st
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import pandas as pd
-import rasterio #####################################################
-import numpy as np ####################################################
+import rasterio
+import numpy as np
 
 
 alle_berge = pd.read_json("data/gipfel-daten.json").reset_index(drop=True)
@@ -28,11 +28,11 @@ with col1:
     with st.expander("Merkmal: Koordinaten / Höhe"):  
 
         #Karte Schweiz mit Punkt
-        schweiz = rasterio.open("streamlit/Uebersichtskarte_Schweiz.tif") #######################################
-        r = schweiz.read(1) ########################################
-        g = schweiz.read(2) ###########################################
-        b = schweiz.read(3) ##########################################
-        rgb = np.dstack((r, g, b))  ##################################################
+        schweiz = rasterio.open("streamlit/Uebersichtskarte_Schweiz.tif")
+        r = schweiz.read(1)
+        g = schweiz.read(2)
+        b = schweiz.read(3)
+        rgb = np.dstack((r, g, b))
 
         punkt_x = st.session_state.richtiger_berg['koordinate_x'].iloc[0]
         punkt_y = st.session_state.richtiger_berg['koordinate_y'].iloc[0]
@@ -44,8 +44,8 @@ with col1:
         ax.imshow(rgb, interpolation="nearest")
         ax.plot(col, row, "ro", markersize=8)
     
-        ax.axis("off") ######################
-        st.pyplot(fig)##############################
+        ax.axis("off")
+        st.pyplot(fig)
 
         st.write(f"Ost: {st.session_state.richtiger_berg['koordinate_x'].iloc[0]}")
         st.write(f"Nord: {st.session_state.richtiger_berg['koordinate_y'].iloc[0]}")
