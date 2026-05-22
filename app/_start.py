@@ -42,7 +42,6 @@ def start_inhalt(state: AppState):
         <div style='
             text-align: center;
             font-size: 24px;
-            margin-top: 0;
             color: white;
         '>    
             Erkenne bekannte Berge anhand ihrer Merkmale 🏔️<br/>
@@ -53,12 +52,14 @@ def start_inhalt(state: AppState):
     
     st.html("""
         <style>
+        div.stVerticalBlock {
+            align-items: center !important;
+        }
         div.stButton > button {
             height: 50px;
             border-radius: 18px;
             background-color: #009ACD;
             color: white;
-            margin-top: 30px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         div.stButton > button p {
@@ -72,6 +73,5 @@ def start_inhalt(state: AppState):
         </style>
         """)
     
-    columns = st.columns((2, 1, 1, 2))
-    columns[1].button('Spiel starten', on_click=state.spiel_starten)
-    columns[2].button('Einstellungen', on_click=state.einstellungen_anzeigen)
+    st.button('Spiel starten', on_click=state.spiel_starten)
+    st.button('Einstellungen', on_click=state.einstellungen_anzeigen)
