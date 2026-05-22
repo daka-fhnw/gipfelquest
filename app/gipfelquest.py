@@ -4,6 +4,9 @@ from _start import start_inhalt
 from _spiel import spiel_inhalt
 from _ergebnis import ergebnis_inhalt
 from _einstellungen import einstellungen_inhalt
+import streamlit as st
+
+st.set_page_config(layout="wide") 
 
 state: AppState = get_state()
 
