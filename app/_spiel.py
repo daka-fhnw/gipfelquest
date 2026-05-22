@@ -33,6 +33,7 @@ def optionen_anzeige(state: AppState, parent: DeltaGenerator = st):
 
 def plot_profile_data(data: tuple[list[float], list[float]], 
                       ax: Axes) -> None:
+    
     ax.set_aspect("equal")
     ax.set_xticks([])
     ax.set_yticks([])
