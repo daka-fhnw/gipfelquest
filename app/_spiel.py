@@ -6,8 +6,13 @@ import numpy as np
 import rasterio
 
 def gipfel_anzeige(state: AppState):
-    st.markdown(f"## Berg {state.spiel.gipfel_index + 1}")
-
+    #st.markdown(f"# Gipfelquest - Gipfel {state.spiel.gipfel_index + 1}")
+    col_logo, col_text = st.columns([0.7, 6], vertical_alignment="center")
+    with col_logo:
+        st.image("data/logo.jpg", width=80)
+    with col_text:
+        st.markdown(f"# Gipfelquest - Gipfel {state.spiel.gipfel_index + 1}")
+        
 @st.fragment(run_every=1)
 def zeit_und_punkte_anzeige(state: AppState):
     restzeit = state.get_restzeit()
@@ -96,7 +101,7 @@ def orthophoto_merkmal(state: AppState):
         st.image(gipfel_zeile["ortho_url"])
 
 def spiel_hauptbereich(state: AppState):
-    st.markdown(f"# Gipfelquest - Gipfel {state.spiel.gipfel_index + 1}")
+    gipfel_anzeige(state)
     profil_merkmal(state)
     spalte1, spalte2 = st.columns(2)
     with spalte1:
