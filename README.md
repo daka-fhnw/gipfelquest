@@ -6,7 +6,7 @@ Im Spiel "gipfelquest" besteht die Möglicheit ihr Bergwissen zu testen. Ziel is
 
 ## Preview
 
-![Screenshot](xxx/xxx.png)
+![Screenshot](data/Screenshot.png)
 
 ## Installation
 
