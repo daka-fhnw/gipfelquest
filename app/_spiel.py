@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 from matplotlib.axes import Axes
-from _state import AppState
+from _state import AppState, get_state
 import numpy as np
 import rasterio
 
@@ -57,58 +57,58 @@ def profil_merkmal(state: AppState):
 
     profil_plot(data_E, ax1, global_min)
     profil_plot(data_N, ax2, global_min)
+    st.pyplot(fig)
 
-    with st.expander("Bergprofil", expanded=True):
-        st.pyplot(fig)
-
-def koordinaten_hoehe_merkmal(state: AppState):
+def koordinaten_hoehe_merkmal():
+    state = get_state()
     gipfel_zeile = state.get_gipfel_zeile()
-    with state.merkmal_box("merkmal_koord_hoehe", "Koordinaten / Höhe", st):
-        schweiz = rasterio.open("streamlit/Uebersichtskarte_Schweiz.tif")
-        r = schweiz.read(1)
-        g = schweiz.read(2)
-        b = schweiz.read(3)
-        rgb = np.dstack((r, g, b))
 
-        punkt_x = gipfel_zeile['koordinate_x']
-        punkt_y = gipfel_zeile['koordinate_y']
-        hoehe = gipfel_zeile["hoehe"]
+    schweiz = rasterio.open("streamlit/Uebersichtskarte_Schweiz.tif")
+    r = schweiz.read(1)
+    g = schweiz.read(2)
+    b = schweiz.read(3)
+    rgb = np.dstack((r, g, b))
 
-        row, col = schweiz.index(punkt_x, punkt_y)
+    punkt_x = gipfel_zeile['koordinate_x']
+    punkt_y = gipfel_zeile['koordinate_y']
+    hoehe = gipfel_zeile["hoehe"]
 
-        fig, ax = plt.subplots(figsize=(15, 9))
+    row, col = schweiz.index(punkt_x, punkt_y)
 
-        ax.imshow(rgb, interpolation="nearest")
-        ax.plot(col, row, "ro", markersize=8)
-        ax.axis("off")
+    fig, ax = plt.subplots(figsize=(15, 9))
 
-        st.html(f"<b>Ost:</b> {punkt_x}, <b>Nord:</b> {punkt_y}, <b>Höhe:</b> {hoehe}")
-        st.pyplot(fig)
+    ax.imshow(rgb, interpolation="nearest")
+    ax.plot(col, row, "ro", markersize=8)
+    ax.axis("off")
 
-def gebietsnamen_merkmal(state: AppState):
+    st.html(f"<b>Ost:</b> {punkt_x}, <b>Nord:</b> {punkt_y}, <b>Höhe:</b> {hoehe}")
+    st.pyplot(fig)
+
+def gebietsnamen_merkmal():
+    state = get_state()
     gipfel_zeile = state.get_gipfel_zeile()
-    with state.merkmal_box("merkmal_gebietsnamen", "Gebietsnamen", st):
-        st.html(f"""<b>Kanton:</b> {gipfel_zeile['kanton'] or "-"}<br/>
-                    <b>Gemeinde:</b> {gipfel_zeile['gemeinde'] or "-"}<br/>
-                    <b>Gebiet:</b> {gipfel_zeile['gebiet'] or "-"}<br/>
-                    <b>Haupttal:</b> {gipfel_zeile['haupttal'] or "-"}<br/>
-                    <b>Gletscher:</b> {gipfel_zeile['gletscher'] or "-"}<br/>
-                    <b>Landschaftsname:</b> {gipfel_zeile['landschaftsname'] or "-"}""")
+    st.html(f"""<b>Kanton:</b> {gipfel_zeile['kanton'] or "-"}<br/>
+                <b>Gemeinde:</b> {gipfel_zeile['gemeinde'] or "-"}<br/>
+                <b>Gebiet:</b> {gipfel_zeile['gebiet'] or "-"}<br/>
+                <b>Haupttal:</b> {gipfel_zeile['haupttal'] or "-"}<br/>
+                <b>Gletscher:</b> {gipfel_zeile['gletscher'] or "-"}<br/>
+                <b>Landschaftsname:</b> {gipfel_zeile['landschaftsname'] or "-"}""")
 
-def orthophoto_merkmal(state: AppState):
+def orthophoto_merkmal():
+    state = get_state()
     gipfel_zeile = state.get_gipfel_zeile()
-    with state.merkmal_box("merkmal_orthophoto", "Orthophoto / Region", st):
-        st.image(gipfel_zeile["ortho_url"])
+    st.image(gipfel_zeile["ortho_url"])
 
 def spiel_hauptbereich(state: AppState):
     gipfel_anzeige(state)
-    profil_merkmal(state)
+    with st.expander("Bergprofil", expanded=True):
+        profil_merkmal(state)
     spalte1, spalte2 = st.columns(2)
     with spalte1:
-        koordinaten_hoehe_merkmal(state)
-        gebietsnamen_merkmal(state)
+        state.merkmal_box("koord_hoehe", "Koordinaten / Höhe", koordinaten_hoehe_merkmal)
+        state.merkmal_box("gebietsnamen", "Gebietsnamen", gebietsnamen_merkmal)
     with spalte2:
-        orthophoto_merkmal(state)
+        state.merkmal_box("orthophoto", "Orthophoto / Region", orthophoto_merkmal)
 
 def spiel_bereich_rechts(state: AppState):
     zeit_und_punkte_anzeige(state)

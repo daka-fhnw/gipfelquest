@@ -2,25 +2,21 @@ import time
 import streamlit as st
 from streamlit.delta_generator import DeltaGenerator
 from pandas import DataFrame
+from collections.abc import Callable
 
 from _konstanten import *
 from _daten import * 
 
 STATE_KEY = "app-state"
 
-class MerkmalState:
-    id: str = ""
-    zeit_abzug: int = 0
-    aktiviert: bool = False
-
 class SpielState: 
     punkte: int = 0
     start_zeit: int = 0
     zeit_abzug: int = 0
-    gipfel_auswahl: DataFrame = DataFrame([])
+    gipfel_auswahl: DataFrame 
     gipfel_index: int = 0
-    antwort_optionen: DataFrame = DataFrame([])
-    merkmale: dict[str, MerkmalState] = {}
+    antwort_optionen: DataFrame
+    merkmale: dict[str, bool] = {}
 
 class ErgebnisState:
     punkte: int = 0
@@ -54,32 +50,30 @@ class AppState:
             self.gipfel_alle, self.get_gipfel_zeile(), self.einstellungen.region)
         st.session_state.highscore_entered = False
 
+    def _merkmal_anzeigen(self, id: str):
+        if not self.spiel.merkmale[id]:
+            self.spiel.merkmale[id] = True
+            self.zeit_abziehen(MERKMAL_ZEIT_ABZUG)
+
     def merkmal_box(self, 
                     id: str, 
                     label: str, 
-                    parent: DeltaGenerator, 
-                    zeit_abzug: int = MERKMAL_ZEIT_ABZUG) -> DeltaGenerator:
+                    inhalt_funktion: Callable):
         if id not in self.spiel.merkmale.keys():
-            merkmal_state = MerkmalState()
-            merkmal_state.id = id
-            merkmal_state.zeit_abzug = zeit_abzug
-            self.spiel.merkmale[id] = merkmal_state
-        label_mit_abzug = f"{label} (-{zeit_abzug} Sekunden)"
-        return parent.expander(label_mit_abzug, key=id, on_change=self._merkmal_on_change, args=[id])
+            self.spiel.merkmale[id] = False
+        anzeigen = self.spiel.merkmale[id]
+        with st.expander(label, expanded=True):
+            if anzeigen: 
+                with st.container():
+                    inhalt_funktion()
+            else:
+                st.button(f"Anzeigen ({MERKMAL_ZEIT_ABZUG} Sekunden Abzug)", 
+                          key = f"anzeigen_{id}",
+                          on_click=self._merkmal_anzeigen, args=[id])
 
-    def _merkmal_on_change(self, id: str):
-        aufgeklappt = st.session_state[id]
-        merkmal_state = self.spiel.merkmale[id]
-        if aufgeklappt and not merkmal_state.aktiviert:
-            self.zeit_abziehen(merkmal_state.zeit_abzug)
-            merkmal_state.aktiviert = True
-
-    def _merkmale_reset(self):
-        merkmale = self.spiel.merkmale
-        ids = merkmale.keys()
-        for id in ids:
-            st.session_state[id] = False
-            merkmale[id].aktiviert = False
+    def _merkmale_reset(self): 
+        for id in self.spiel.merkmale.keys():
+            self.spiel.merkmale[id] = False
 
     def get_gipfel_zeile(self) -> Series:
         return self.spiel.gipfel_auswahl.iloc[self.spiel.gipfel_index]
