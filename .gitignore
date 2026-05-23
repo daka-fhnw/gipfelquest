@@ -145,3 +145,4 @@ quellen/**
 
 ## Highscore ignorieren
 highscore/**
+!highscore/.gitkeep
