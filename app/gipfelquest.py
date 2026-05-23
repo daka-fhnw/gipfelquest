@@ -12,9 +12,20 @@ state: AppState = get_state()
 
 if state.seite == START_SEITE:
     start_inhalt(state)
-elif state.seite == SPIEL_SEITE:
+else:
+    st.empty()
+
+if state.seite == SPIEL_SEITE:
     spiel_inhalt(state)
-elif state.seite == ERGEBNIS_SEITE:
+else:
+    st.empty()
+
+if state.seite == ERGEBNIS_SEITE:
     ergebnis_inhalt(state)
-elif state.seite == EINSTELUNGEN_SEITE:
+else:
+    st.empty()
+
+if state.seite == EINSTELUNGEN_SEITE:
     einstellungen_inhalt(state)
+else:
+    st.empty()
